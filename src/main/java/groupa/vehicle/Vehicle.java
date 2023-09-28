@@ -1,8 +1,9 @@
 package groupa.vehicle;
 
+import groupa.interfaces.NoiseMaker;
 import groupa.interfaces.Rideable;
 
-public abstract class Vehicle implements Rideable {
+public abstract class Vehicle implements Rideable, NoiseMaker {
     private boolean inUse = false;
 
     public Vehicle() {
