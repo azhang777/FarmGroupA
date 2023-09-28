@@ -1,4 +1,5 @@
 package groupa.vehicle;
 
-public class Aircraft {
+public abstract class Aircraft {
+
 }
