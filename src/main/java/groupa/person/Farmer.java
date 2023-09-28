@@ -1,6 +1,9 @@
 package groupa.person;
 
-public class Farmer extends Person {
+import groupa.interfaces.Botanist;
+import groupa.interfaces.Rider;
+
+public class Farmer extends Person implements Botanist, Rider {
     private boolean isRiding;
 
     public Farmer(String name, String favPhrase, int age) {
