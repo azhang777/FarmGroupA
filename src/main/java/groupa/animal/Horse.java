@@ -1,4 +1,3 @@
 package groupa.animal;
 
-public class Horse {
-}
+public class Horse

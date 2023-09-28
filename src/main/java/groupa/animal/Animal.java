@@ -1,4 +1,5 @@
 package groupa.animal;
 
-public class Animal {
-}
+public abstract class Animal {
+
+
