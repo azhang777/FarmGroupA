@@ -1,8 +1,9 @@
 package groupa.animal;
 
-import groupa.interfaces.Ridable;
+import groupa.interfaces.Edible;
+import groupa.interfaces.Rideable;
 
-public class Horse extends Animal implements Ridable {
+public class Horse extends Animal implements Rideable {
 
     private boolean isGalloping;
     private boolean inUse;
@@ -54,5 +55,15 @@ public class Horse extends Animal implements Ridable {
         } else {
             System.out.println(getName() + " the Horse is not in use.");
         }
+    }
+
+    @Override
+    public void eat(Edible food) {
+
+    }
+
+    @Override
+    public void makeNoise(String sound) {
+
     }
 }

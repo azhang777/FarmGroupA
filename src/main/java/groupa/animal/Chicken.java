@@ -1,12 +1,11 @@
 package groupa.animal;
 
 import groupa.interfaces.Edible;
-import groupa.interfaces.Produce;
 import groupa.interfaces.NoiseMaker;
-import groupa.animal.Egg;
-
+import groupa.interfaces.Produce;
 import java.util.ArrayList;
 import java.util.List;
+import groupa.animal.Egg;
 
 public class Chicken extends Animal implements Produce, Edible, NoiseMaker {
 
@@ -16,7 +15,7 @@ public class Chicken extends Animal implements Produce, Edible, NoiseMaker {
     public Chicken(String name, int age, boolean hasBeenFertilized) {
         super("Cluck", name, age);
         this.hasBeenFertilized = hasBeenFertilized;
-        List<Egg> eggs;
+        this.eggs = new ArrayList<>();
     }
 
     @Override
