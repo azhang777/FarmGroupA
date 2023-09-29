@@ -5,6 +5,9 @@ import groupa.interfaces.Rideable;
 
 public abstract class Vehicle implements Rideable, NoiseMaker {
     private boolean inUse = false;
+    public Vehicle(boolean inUse) {
+        this.inUse = inUse;
+    }
 
     public Vehicle() {
         this(false);
@@ -20,8 +23,6 @@ public abstract class Vehicle implements Rideable, NoiseMaker {
     public boolean isInUse() {
         return inUse;
     }
-    public Vehicle(boolean inUse) {
-        this.inUse = inUse;
-    }
+
 
 }
