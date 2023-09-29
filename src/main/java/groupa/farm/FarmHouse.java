@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class FarmHouse {
     private ArrayList<Person> persons;
 
-    public FarmHouse(ArrayList<Person> persons) {
+    public FarmHouse() {
         this.persons = new ArrayList<>();
     }
 
