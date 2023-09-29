@@ -10,7 +10,12 @@ public class CornStalk extends Crop{
     }
 
     @Override
-    public boolean hasBeenHarvested() {
-        return false;
+    public void harvested() {
+        if (this.isFertilized() && this.isHarvested()) {
+            this.corn.add(new Corn());
+        }
+        this.setHarvested(false);
+        this.setFertilized(false);
     }
+
 }

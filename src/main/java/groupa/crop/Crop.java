@@ -25,5 +25,6 @@ public abstract class Crop {
         this.harvested = harvested;
     }
 
-    public abstract boolean hasBeenHarvested();
+
+    public abstract void harvested();
 }
