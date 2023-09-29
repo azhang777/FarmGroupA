@@ -6,7 +6,7 @@ public class Field {
 
     private ArrayList<CropRow> cropRows;
 
-    public Field(ArrayList<CropRow> cropRows) {
+    public Field() {
         this.cropRows = new ArrayList<>();
     }
 
