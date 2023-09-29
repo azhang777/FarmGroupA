@@ -10,8 +10,7 @@ public class Horse extends Animal implements Ridable {
 
     @Override
     public void makeNoise() {
-        setSound("Neigh");
-        System.out.println("Horse " + getName() + " neighs");
+        System.out.println("Horse " + getName() + super.getSound());
     }
 
     @Override

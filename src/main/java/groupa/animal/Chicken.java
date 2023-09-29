@@ -15,8 +15,7 @@ public class Chicken extends Animal implements Produce, Edible, NoiseMaker {
 
     @Override
     public void makeNoise() {
-        setSound("Cluck");
-        System.out.println("Chicken " + getName() + " clucks");
+        System.out.println("Chicken " + getName() + super.getSound());
     }
 
     @Override
