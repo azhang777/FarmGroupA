@@ -1,12 +1,21 @@
 package groupa.farm;
 
+import groupa.Day;
+
 import java.util.ArrayList;
 
 public class Farm {
-
     private ArrayList<Stable> stables;
     private ArrayList<ChickenCoop> chickenCoops;
     private FarmHouse farmHouse;
+    private Field field;
+
+    public Farm() {
+        this.stables = new ArrayList<>();
+        this.chickenCoops = new ArrayList<>();
+        this.farmHouse = new FarmHouse();
+        this.field = new Field();
+    }
 
     public ArrayList<Stable> getStables() {
         return stables;
@@ -33,7 +42,7 @@ public class Farm {
 
     // will work on soon
     public void advanceDay() {
-
+        Day.nextDay();
     }
 
 }

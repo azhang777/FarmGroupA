@@ -10,7 +10,7 @@ public enum Day {
             SUNDAY, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY
     };
 
-    public int getCurrentDay() {
+    public static int getCurrentDay() {
         return daysOfWeek[dayIndex];
     }
     public static void nextDay() {
