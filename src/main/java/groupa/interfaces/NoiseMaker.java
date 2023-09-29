@@ -1,5 +1,5 @@
 package groupa.interfaces;
 
 public interface NoiseMaker {
-    void makeNoise();
+    void makeNoise(String sound);
 }
