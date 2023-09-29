@@ -4,8 +4,20 @@ import groupa.interfaces.Ridable;
 
 public class Horse extends Animal implements Ridable {
 
+    private boolean isGalloping;
+    private boolean inUse;
+
     public Horse(String name, int age) {
         super("Neigh", name, age);
+        this.isGalloping = false;
+        this.inUse = false;
+    }
+    public boolean isGalloping() {
+        return isGalloping;
+    }
+
+    public void setGalloping(boolean isGalloping) {
+        this.isGalloping = isGalloping;
     }
 
     @Override
@@ -24,11 +36,23 @@ public class Horse extends Animal implements Ridable {
 
     @Override
     public void ride() {
-        System.out.println(getName() + " the Horse is being ridden.");
+        if (!inUse) {
+            inUse = true;
+            setGalloping(true);
+            System.out.println(getName() + " the Horse is being ridden.");
+        } else {
+            System.out.println(getName() + " the Horse is already in use.");
+        }
     }
 
     @Override
     public void dismount() {
-        System.out.println(getName() + " the Horse is being dismounted.");
+        if (inUse) {
+            inUse = false;
+            setGalloping(false);
+            System.out.println(getName() + " the Horse is being dismounted.");
+        } else {
+            System.out.println(getName() + " the Horse is not in use.");
+        }
     }
 }
