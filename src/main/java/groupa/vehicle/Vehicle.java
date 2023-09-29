@@ -1,4 +1,28 @@
 package groupa.vehicle;
 
-public class Vehicle {
+import groupa.interfaces.NoiseMaker;
+import groupa.interfaces.Rideable;
+
+public abstract class Vehicle implements Rideable, NoiseMaker {
+    private boolean inUse = false;
+    public Vehicle(boolean inUse) {
+        this.inUse = inUse;
+    }
+
+    public Vehicle() {
+        this(false);
+    }
+
+
+
+    public void setInUse(boolean inUse) {
+        this.inUse = inUse;
+    }
+
+    @Override
+    public boolean isInUse() {
+        return inUse;
+    }
+
+
 }
