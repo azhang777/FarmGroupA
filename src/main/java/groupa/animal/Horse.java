@@ -5,12 +5,13 @@ import groupa.interfaces.Ridable;
 public class Horse extends Animal implements Ridable {
 
     public Horse(String name, int age) {
-        super(name, age);
+        super("Neigh", name, age);
     }
 
     @Override
     public void makeNoise() {
-        System.out.println("Horse neighs");
+        setSound("Neigh");
+        System.out.println("Horse " + getName() + " neighs");
     }
 
     @Override
