@@ -9,6 +9,10 @@ public class TomatoPlant extends Crop {
         super(fertilized, harvested);
     }
 
+    /**
+     * if TomatoPlant fertilized = true (by crop duster operation) && harvested = true (by tractor operation), this method will
+     * add a new corn object into the arrayList corn. It will then set harvested and fertilized to false, resetting the process.
+     */
     @Override
     public void harvested() {
         if (this.isFertilized() && this.isHarvested()) {
