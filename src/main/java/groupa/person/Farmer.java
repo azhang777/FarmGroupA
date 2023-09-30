@@ -9,10 +9,7 @@ public class Farmer extends Person {
         super(name, favPhrase, age);
     }
 
-    public Farmer(String name, String favPhrase, int age, boolean isRiding) {
-        super(name, favPhrase, age);
-        this.isRiding = isRiding;
-    }
+
 
     public boolean isRiding() {
         return isRiding;
@@ -28,7 +25,8 @@ public class Farmer extends Person {
     }
 
     @Override
-    public void makeNoise(String sound) {
-
+    public void makeNoise() {
+        System.out.println(getFavPhrase());
     }
+
 }

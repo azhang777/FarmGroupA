@@ -2,6 +2,7 @@ package groupa.person;
 
 
 import groupa.interfaces.Edible;
+import groupa.interfaces.Rideable;
 import groupa.interfaces.Rider;
 
 
@@ -30,13 +31,18 @@ public class Pilot extends Person implements Rider {
 
     }
 
-    /**
-     *
-     * @param sound
-     * Change this when kuma changes his code to avoid and make it "Pilot says something"
-     */
     @Override
-    public void makeNoise(String sound) {
+    public void makeNoise() {
+        System.out.println(getFavPhrase());
+    }
+
+    @Override
+    public void mount(Rideable rideable) {
+
+    }
+
+    @Override
+    public void dismount(Rideable rideable) {
 
     }
 }
