@@ -1,8 +1,10 @@
 package groupa.crop;
 
+import groupa.interfaces.Edible;
+
 import java.util.ArrayList;
 
-public class CornStalk extends Crop{
+public class CornStalk extends Crop {
     private ArrayList<Corn> corn;
 
     public CornStalk(boolean fertilized, boolean harvested) {
@@ -22,4 +24,8 @@ public class CornStalk extends Crop{
         this.setFertilized(false);
     }
 
+    @Override
+    public Edible yield() {
+        return null;
+    }
 }

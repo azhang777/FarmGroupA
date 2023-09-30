@@ -1,5 +1,7 @@
 package groupa.crop;
 
+import groupa.interfaces.Edible;
+
 import java.util.ArrayList;
 
 public class TomatoPlant extends Crop {
@@ -11,16 +13,19 @@ public class TomatoPlant extends Crop {
 
     /**
      * if TomatoPlant fertilized = true (by crop duster operation) && harvested = true (by tractor operation), this method will
-     * add a new corn object into the arrayList corn. It will then set harvested and fertilized to false, resetting the process.
+     * add a new corn object into the arrayList corn. If successfully harvested, set both fertilized and harvested to false.
+     * else sout that the crop is not ready to be harvested.
      */
     @Override
-    public void harvested() {
-        if (this.isFertilized() && this.isHarvested()) {
+    public Edible yield() {
+        if (this.checkFertilized() && this.checkHarvested()) {
             this.tomatoes.add(new Tomato());
+            this.setHasBeenFertilized(false);
+            this.setHasBeenHarvested(false);
         }
-        this.setHarvested(false);
-        this.setFertilized(false);
+        else {
+            System.out.println("Not ready to be harvested!");
+        }
+        return null;
     }
-
-
 }
