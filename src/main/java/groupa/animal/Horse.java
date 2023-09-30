@@ -35,27 +35,6 @@ public class Horse extends Animal implements Rideable {
         }
     }
 
-    @Override
-    public void ride() {
-        if (!inUse) {
-            inUse = true;
-            setGalloping(true);
-            System.out.println(getName() + " the Horse is being ridden.");
-        } else {
-            System.out.println(getName() + " the Horse is already in use.");
-        }
-    }
-
-    @Override
-    public void dismount() {
-        if (inUse) {
-            inUse = false;
-            setGalloping(false);
-            System.out.println(getName() + " the Horse is being dismounted.");
-        } else {
-            System.out.println(getName() + " the Horse is not in use.");
-        }
-    }
 
     @Override
     public void eat(Edible food) {
