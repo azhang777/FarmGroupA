@@ -1,8 +1,13 @@
 package groupa.person;
 
+import groupa.crop.Crop;
+import groupa.farm.CropRow;
+import groupa.interfaces.Botanist;
 import groupa.interfaces.Edible;
+import groupa.interfaces.Rideable;
+import groupa.interfaces.Rider;
 
-public class Farmer extends Person {
+public class Farmer extends Person implements Botanist, Rider {
     private boolean isRiding;
 
     public Farmer(String name, String favPhrase, int age) {
@@ -29,4 +34,18 @@ public class Farmer extends Person {
         System.out.println(getFavPhrase());
     }
 
+    @Override
+    public void plant(Crop crop, CropRow cropRow) {
+
+    }
+
+    @Override
+    public void mount(Rideable rideable) {
+
+    }
+
+    @Override
+    public void dismount(Rideable rideable) {
+
+    }
 }
