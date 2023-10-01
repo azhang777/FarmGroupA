@@ -41,6 +41,7 @@ public class Horse extends Animal implements Rideable {
 
     }
 
+
     @Override
     public void makeNoise(String sound) {
 
