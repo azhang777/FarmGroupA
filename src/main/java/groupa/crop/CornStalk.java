@@ -19,17 +19,15 @@ public class CornStalk extends Crop {
      * else log that the crop is not ready to be harvested and return null.
      */
     @Override
-    public Edible yield() {
+    public void yield() {
         if (this.checkFertilized() && this.checkHarvested()) {
             Corn newCorn = new Corn();
             this.corn.add(newCorn);
             this.setHasBeenFertilized(false);
             this.setHasBeenHarvested(false);
-            return newCorn;
         }
         else {
             System.out.println("Corn stalk not ready to be harvested!");
-            return null;
         }
     }
 
