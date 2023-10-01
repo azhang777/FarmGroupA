@@ -24,19 +24,19 @@ public class CropRow {
      * All crops in cropRow will have their fertilized = true
      */
     public void fertilizeAllCrops() {
-        crops.forEach(cropElement -> cropElement.setFertilized(true));
+        crops.forEach(cropElement -> cropElement.setHasBeenFertilized(true));
     }
 
     /**
      * when tracker operates, all cropsRows in the field will call this method
      * All crops in cropRow will have their harvested = true
-     * All crops will try to be harvested, adding a Tomato or EarCorn object to
-     * Arraylist in CornStalk and TomatoPlant objects respectively.
+     * All crops will try to be harvested, adding a Tomato or Corn object to
+     * Arraylist in TomatoPlant and CornStalk objects respectively.
      */
     public void harvestAllCrops() {
         crops.forEach(cropElement -> {
-            cropElement.setHarvested(true);
-            cropElement.harvested();
+            cropElement.setHasBeenHarvested(true);
+            cropElement.yield();
         });
     }
 }
