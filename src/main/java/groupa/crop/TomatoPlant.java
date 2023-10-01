@@ -3,6 +3,9 @@ package groupa.crop;
 import groupa.interfaces.Edible;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class TomatoPlant extends Crop {
 
@@ -31,5 +34,23 @@ public class TomatoPlant extends Crop {
             System.out.println("Tomato plant not ready to be harvested!");
             return null;
         }
+    }
+
+    /**
+     *
+     * @return Tomato
+     * come back to later, we are grabbing the nearest tomato but not sorting it.
+     */
+    @Override
+    public Tomato pick() {
+        Tomato tomatoToAdd = null;
+        for (Tomato tomato: tomatoes) {
+            if (tomato != null) {
+                tomatoToAdd = tomato;
+                tomatoes.remove(tomato);
+            }
+
+        }
+        return tomatoToAdd;
     }
 }

@@ -32,4 +32,17 @@ public class CornStalk extends Crop {
             return null;
         }
     }
+
+    @Override
+    public Corn pick() {
+        Corn cornToAdd = null;
+        for (Corn c: corn) {
+            if (c != null) {
+                cornToAdd = c;
+                corn.remove(c);
+            }
+
+        }
+        return cornToAdd;
+    }
 }
