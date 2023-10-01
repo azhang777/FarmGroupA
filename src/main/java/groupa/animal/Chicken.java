@@ -1,5 +1,6 @@
 package groupa.animal;
 
+import groupa.crop.Corn;
 import groupa.interfaces.Edible;
 import groupa.interfaces.NoiseMaker;
 import groupa.interfaces.Produce;
@@ -25,11 +26,11 @@ public class Chicken extends Animal implements Produce, Edible, NoiseMaker {
 
     @Override
     public void eat(Edible food) {
-        if (food instanceof Egg) {
-            System.out.println(getName() + " the Chicken is producing an EdibleEgg.");
-            eggs.add((Egg) food);
+        if (food instanceof Corn) {
+            System.out.println(getName() + " the Chicken is eating corn.");
+            corn.add((Corn) food);
         } else {
-            System.out.println(getName() + " the Chicken doesn't produce any eggs.");
+            System.out.println(getName() + " the Chicken didn't eat anything.");
         }
     }
 
