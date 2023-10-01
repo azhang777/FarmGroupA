@@ -4,5 +4,5 @@ public interface Produce {
     /**
      * @return Edible object depending on their hasBeenFertilized flag.
      */
-    Edible yield();
+    void yield();
 }
