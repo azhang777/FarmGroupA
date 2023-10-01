@@ -1,11 +1,24 @@
 package groupa.animal;
 
-import groupa.interfaces.Ridable;
+import groupa.interfaces.Edible;
+import groupa.interfaces.Rideable;
 
-public class Horse extends Animal implements Ridable {
+public class Horse extends Animal implements Rideable {
+
+    private boolean isGalloping;
+    private boolean inUse;
 
     public Horse(String name, int age) {
         super("Neigh", name, age);
+        this.isGalloping = false;
+        this.inUse = false;
+    }
+    public boolean isGalloping() {
+        return isGalloping;
+    }
+
+    public void setGalloping(boolean isGalloping) {
+        this.isGalloping = isGalloping;
     }
 
     @Override
@@ -22,14 +35,15 @@ public class Horse extends Animal implements Ridable {
         }
     }
 
+
     @Override
-    public void ride() {
-        System.out.println(getName() + " the Horse is being ridden.");
+    public void eat(Edible food) {
+
     }
 
 
     @Override
-    public void dismount() {
-        System.out.println(getName() + " the Horse is being dismounted.");
+    public void makeNoise(String sound) {
+
     }
 }
