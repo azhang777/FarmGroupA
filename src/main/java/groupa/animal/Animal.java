@@ -1,12 +1,27 @@
 package groupa.animal;
 
 import groupa.interfaces.Eater;
-import groupa.interfaces.NoiseMaker
+import groupa.interfaces.Edible;
+import groupa.interfaces.NoiseMaker;
 
 public abstract class Animal implements Eater, NoiseMaker {
     private String sound;
     private String name;
     private int age;
+
+    public Animal(String sound, String name, int age) {
+        this.sound = sound;
+        this.name = name;
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public int getAge() {
         return age;
@@ -25,18 +40,13 @@ public abstract class Animal implements Eater, NoiseMaker {
         this.sound = sound;
     }
 
-    public Animal(String sound, String name, int age) {
-        this.sound = sound;
-        this.name = name;
-        this.age = age;
-    }
+
 
     public abstract void makeNoise();
 
 
-    @Override
-    public void eat(Edible food) {
-    }
+
+    public abstract void eat(Edible food);
 }
 
 

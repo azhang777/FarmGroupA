@@ -1,6 +1,8 @@
 package groupa.animal;
 
+import groupa.crop.Basket;
 import groupa.crop.Corn;
+import groupa.crop.Tomato;
 import groupa.interfaces.Edible;
 import groupa.interfaces.NoiseMaker;
 import groupa.interfaces.Produce;
@@ -12,6 +14,7 @@ public class Chicken extends Animal implements Produce, Edible, NoiseMaker {
 
     private boolean hasBeenFertilized;
     private List<Egg> eggs;
+    private final boolean isEdible = true;
 
     public Chicken(String name, int age, boolean hasBeenFertilized) {
         super("Cluck", name, age);
@@ -27,21 +30,23 @@ public class Chicken extends Animal implements Produce, Edible, NoiseMaker {
     @Override
     public void eat(Edible food) {
         if (food instanceof Corn) {
+            Basket basket = Basket.getInstance();
+            basket.takeFrom(food);
             System.out.println(getName() + " the Chicken is eating corn.");
-            corn.add((Corn) food);
+            hasBeenFertilized = false;
         } else {
             System.out.println(getName() + " the Chicken didn't eat anything.");
         }
     }
 
     @Override
-    public Edible yieldProduce() {
+    public void yield() {
         if (!hasBeenFertilized) {
             Egg egg = new Egg();
             eggs.add(egg);
-            return egg;
+            hasBeenFertilized = true;
         } else {
-            return null;
+            System.out.println("No egg laid");
         }
     }
 
@@ -55,11 +60,23 @@ public class Chicken extends Animal implements Produce, Edible, NoiseMaker {
 
     @Override
     public boolean getIfEdible() {
-        return false;
+        return isEdible;
     }
 
     @Override
-    public void makeNoise(String sound) {
+    public void makeNoise() {
+        System.out.println(super.getSound());
 
+    }
+    public Egg collectEgg() {
+        Egg eggToAdd = null;
+        for (Egg egg: eggs) {
+            if (egg != null) {
+                eggToAdd = egg;
+                eggs.remove(egg);
+            }
+
+        }
+        return eggToAdd;
     }
 }
