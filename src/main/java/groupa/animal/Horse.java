@@ -27,6 +27,7 @@ public class Horse extends Animal implements Ridable {
         System.out.println(getName() + " the Horse is being ridden.");
     }
 
+
     @Override
     public void dismount() {
         System.out.println(getName() + " the Horse is being dismounted.");
