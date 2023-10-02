@@ -8,6 +8,7 @@ public abstract class Animal implements Eater, NoiseMaker {
     private String name;
     private int age;
 
+
     public Animal(String sound, String name, int age) {
         this.sound = sound;
         this.name = name;
@@ -40,10 +41,8 @@ public abstract class Animal implements Eater, NoiseMaker {
     }
 
     public abstract void makeNoise();
-
-
-
     public abstract void eat();
+
 }
 
 

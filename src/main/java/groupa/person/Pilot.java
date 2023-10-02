@@ -28,21 +28,6 @@ public class Pilot extends Person implements Rider {
     }
 
     @Override
-    public void eat() {
-        System.out.println(getName() + " will eat 2 Corn, 1 Tomato, 2 Eggs");
-        Basket.getInstance().takeCorn();
-        Basket.getInstance().takeCorn();
-        Basket.getInstance().takeTomato();
-        Basket.getInstance().takeEgg();
-        Basket.getInstance().takeEgg();
-    }
-
-    @Override
-    public void makeNoise() {
-        System.out.println(getFavPhrase());
-    }
-
-    @Override
     public void mount(Rideable rideable) {
 
     }
@@ -50,5 +35,13 @@ public class Pilot extends Person implements Rider {
     @Override
     public void dismount(Rideable rideable) {
 
+    }
+
+    @Override
+    public void makeNoise() {
+        System.out.println(getFavPhrase());
+    }
+    @Override
+    public void eat() {
     }
 }

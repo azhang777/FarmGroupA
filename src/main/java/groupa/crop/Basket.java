@@ -17,37 +17,64 @@ public final class Basket {
         edibles.add(edible);
     }
 
-    public boolean takeCorn() {
-        for (Edible item: edibles) {
-            if (item instanceof Corn) {
-                edibles.remove(item);
-                return true;
-            }
+    public boolean takeCorn(int count) {
+        if (checkIfAvailable(1) < count) {
+            System.out.println("Not enough corn. corn count: " + checkIfAvailable(1));
+            return false;
         }
-        return false;
+        edibles.removeIf(item -> item instanceof Corn);
+        return true;
     }
 
-    public boolean takeTomato() {
-        for (Edible item: edibles) {
-            if (item instanceof Tomato) {
-                edibles.remove(item);
-                return true;
-            }
+    public boolean takeTomato(int count) {
+        if (checkIfAvailable(2) < count) {
+            System.out.println("Not enough tomato. tomato count: " + checkIfAvailable(2));
+            return false;
         }
-        return false;
+        edibles.removeIf(item -> item instanceof Tomato);
+        return true;
     }
 
-    public boolean takeEgg() {
-        for (Edible item: edibles) {
-            if (item instanceof Egg) {
-                edibles.remove(item);
-                return true;
-            }
+    public boolean takeEgg(int count) {
+        if (checkIfAvailable(3) < count) {
+            System.out.println("Not enough egg. egg count: " + checkIfAvailable(3));
+            return false;
         }
-        return false;
+        edibles.removeIf(item -> item instanceof Tomato);
+        return true;
+    }
+
+    public int totalAmount() {
+        return edibles.size();
     }
 
     public static Basket getInstance() {
         return basket;
+    }
+
+    private int checkIfAvailable(int type) {
+        int counter = 0;
+        if (type == 1) {
+            for (Edible item: edibles) {
+                if (item instanceof Corn) {
+                    counter++;
+                }
+            }
+        }
+        else if (type == 2) {
+            for (Edible item: edibles) {
+                if (item instanceof Tomato) {
+                    counter++;
+                }
+            }
+        }
+        else if (type == 3) {
+            for (Edible item: edibles) {
+                if (item instanceof Egg) {
+                    counter++;
+                }
+            }
+        }
+        return counter;
     }
 }
