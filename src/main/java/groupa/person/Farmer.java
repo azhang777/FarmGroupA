@@ -27,6 +27,11 @@ public class Farmer extends Person {
 
     @Override
     public void eat() {
+        Basket.getInstance().takeTomato(2);
+        Basket.getInstance().takeEgg(5);
+        Basket.getInstance().takeCorn(1);
+        System.out.println(getName() + " has had a full meal ");
+
 
     }
 }

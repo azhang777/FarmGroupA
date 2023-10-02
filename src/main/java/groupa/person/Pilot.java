@@ -41,7 +41,13 @@ public class Pilot extends Person implements Rider {
     public void makeNoise() {
         System.out.println(getFavPhrase());
     }
+
     @Override
     public void eat() {
+        Basket.getInstance().takeTomato(1);
+        Basket.getInstance().takeEgg(2);
+        Basket.getInstance().takeCorn(2);
+        System.out.println(getName() + " has had a full meal ");
+
     }
 }
