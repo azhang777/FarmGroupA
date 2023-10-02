@@ -28,7 +28,7 @@ public class CropRow {
     }
 
     /**
-     * when tracker operates, all cropsRows in the field will call this method
+     * when tractor operates, all cropsRows in the field will call this method
      * All crops in cropRow will have their harvested = true
      * All crops will try to be harvested, adding a Tomato or Corn object to
      * Arraylist in TomatoPlant and CornStalk objects respectively.
