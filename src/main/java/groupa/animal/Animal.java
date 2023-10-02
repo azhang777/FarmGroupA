@@ -1,9 +1,8 @@
 package groupa.animal;
 
 import groupa.interfaces.Eater;
-import groupa.interfaces.Edible;
 import groupa.interfaces.NoiseMaker;
-
+//done
 public abstract class Animal implements Eater, NoiseMaker {
     private String sound;
     private String name;
@@ -40,13 +39,11 @@ public abstract class Animal implements Eater, NoiseMaker {
         this.sound = sound;
     }
 
-
-
     public abstract void makeNoise();
 
 
 
-    public abstract void eat(Edible food);
+    public abstract void eat();
 }
 
 

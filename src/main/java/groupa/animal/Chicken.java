@@ -1,15 +1,14 @@
 package groupa.animal;
 
 import groupa.crop.Basket;
-import groupa.crop.Corn;
-import groupa.crop.Tomato;
 import groupa.interfaces.Edible;
 import groupa.interfaces.NoiseMaker;
 import groupa.interfaces.Produce;
 import java.util.ArrayList;
 import java.util.List;
-import groupa.animal.Egg;
+import java.util.Scanner;
 
+//done
 public class Chicken extends Animal implements Produce, Edible, NoiseMaker {
 
     private boolean hasBeenFertilized;
@@ -24,18 +23,18 @@ public class Chicken extends Animal implements Produce, Edible, NoiseMaker {
 
     @Override
     public void makeNoise() {
-        System.out.println("Chicken " + getName() + super.getSound());
+        System.out.println("Chicken " + getName() + getSound());
     }
 
     @Override
-    public void eat(Edible food) {
-        if (food instanceof Corn) {
-            Basket basket = Basket.getInstance();
-            basket.takeFrom(food);
-            System.out.println(getName() + " the Chicken is eating corn.");
-            hasBeenFertilized = false;
-        } else {
-            System.out.println(getName() + " the Chicken didn't eat anything.");
+    public void eat() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("What do you want to feed the chicken?\n1. Tomato\n2. Corn\n3. Egg");
+        int option = scanner.nextInt();
+        switch (option) {
+            case 1 -> System.out.println("Chicken cannot eat tomato!");
+            case 2 -> Basket.getInstance().takeCorn();
+            case 3 -> System.out.println("Chicken cannot eat egg!");
         }
     }
 
@@ -63,20 +62,16 @@ public class Chicken extends Animal implements Produce, Edible, NoiseMaker {
         return isEdible;
     }
 
-    @Override
-    public void makeNoise() {
-        System.out.println(super.getSound());
-
-    }
-    public Egg collectEgg() {
+    public void collectEgg() {
         Egg eggToAdd = null;
         for (Egg egg: eggs) {
             if (egg != null) {
                 eggToAdd = egg;
+                Basket.getInstance().addTo(eggToAdd);
                 eggs.remove(egg);
+                break;
             }
 
         }
-        return eggToAdd;
     }
 }

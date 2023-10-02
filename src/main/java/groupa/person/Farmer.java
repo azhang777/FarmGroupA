@@ -1,5 +1,6 @@
 package groupa.person;
 
+import groupa.crop.Basket;
 import groupa.interfaces.Edible;
 
 public class Farmer extends Person {
@@ -20,8 +21,16 @@ public class Farmer extends Person {
     }
 
     @Override
-    public void eat(Edible food) {
-
+    public void eat() {
+        System.out.println(" will eat 1 Corn, 2 Tomato, and 5 Egg");
+        Basket.getInstance().takeCorn();
+        Basket.getInstance().takeTomato();
+        Basket.getInstance().takeTomato();
+        Basket.getInstance().takeEgg();
+        Basket.getInstance().takeEgg();
+        Basket.getInstance().takeEgg();
+        Basket.getInstance().takeEgg();
+        Basket.getInstance().takeEgg();
     }
 
     @Override
