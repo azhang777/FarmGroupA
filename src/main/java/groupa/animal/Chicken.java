@@ -6,9 +6,8 @@ import groupa.interfaces.NoiseMaker;
 import groupa.interfaces.Produce;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
-//done
+
 public class Chicken extends Animal implements Produce, Edible, NoiseMaker {
 
     private boolean hasBeenFertilized;
@@ -63,6 +62,6 @@ public class Chicken extends Animal implements Produce, Edible, NoiseMaker {
 
     @Override
     public void eat() {
-
+    Basket.getInstance().takeTomato(2);
     }
 }

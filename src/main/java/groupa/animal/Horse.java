@@ -1,5 +1,6 @@
 package groupa.animal;
 
+import groupa.crop.Basket;
 import groupa.interfaces.Rideable;
 
 public class Horse extends Animal implements Rideable {
@@ -22,11 +23,12 @@ public class Horse extends Animal implements Rideable {
 
     @Override
     public boolean isInUse() {
-        return false;
+        return inUse;
     }
 
     @Override
     public void setInUse() {
+
 
     }
 
@@ -37,6 +39,7 @@ public class Horse extends Animal implements Rideable {
 
     @Override
     public void eat() {
+        Basket.getInstance().takeCorn(3);
 
     }
 }
