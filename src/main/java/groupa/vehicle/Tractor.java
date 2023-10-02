@@ -19,4 +19,9 @@ public class Tractor extends Vehicle implements FarmVehicle {
     public void setInUse() {
 
     }
+
+    @Override
+    public void makeNoise() {
+
+    }
 }

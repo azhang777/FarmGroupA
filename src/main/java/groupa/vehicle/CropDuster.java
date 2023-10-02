@@ -12,4 +12,14 @@ public class CropDuster extends Aircraft implements FarmVehicle {
     public boolean operate() {
         return false;
     }
+
+    @Override
+    public void makeNoise() {
+
+    }
+
+    @Override
+    public void setInUse() {
+
+    }
 }
