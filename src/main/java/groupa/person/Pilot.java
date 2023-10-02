@@ -1,6 +1,7 @@
 package groupa.person;
 
 
+import groupa.crop.Basket;
 import groupa.interfaces.Edible;
 import groupa.interfaces.Rideable;
 import groupa.interfaces.Rider;
@@ -27,7 +28,12 @@ public class Pilot extends Person implements Rider {
     }
 
     @Override
-    public void eat(Edible food) {
+    public void mount(Rideable rideable) {
+
+    }
+
+    @Override
+    public void dismount(Rideable rideable) {
 
     }
 
@@ -37,12 +43,11 @@ public class Pilot extends Person implements Rider {
     }
 
     @Override
-    public void mount(Rideable rideable) {
-
-    }
-
-    @Override
-    public void dismount(Rideable rideable) {
+    public void eat() {
+        Basket.getInstance().takeTomato(1);
+        Basket.getInstance().takeEgg(2);
+        Basket.getInstance().takeCorn(2);
+        System.out.println(getName() + " has had a full meal ");
 
     }
 }

@@ -1,15 +1,14 @@
 package groupa.animal;
 
 import groupa.crop.Basket;
-import groupa.crop.Corn;
-import groupa.crop.Tomato;
 import groupa.interfaces.Edible;
 import groupa.interfaces.NoiseMaker;
 import groupa.interfaces.Produce;
 import java.util.ArrayList;
 import java.util.List;
-import groupa.animal.Egg;
+import java.util.Scanner;
 
+//done
 public class Chicken extends Animal implements Produce, Edible, NoiseMaker {
 
     private boolean hasBeenFertilized;
@@ -20,34 +19,6 @@ public class Chicken extends Animal implements Produce, Edible, NoiseMaker {
         super("Cluck", name, age);
         this.hasBeenFertilized = hasBeenFertilized;
         this.eggs = new ArrayList<>();
-    }
-
-    @Override
-    public void makeNoise() {
-        System.out.println("Chicken " + getName() + super.getSound());
-    }
-
-    @Override
-    public void eat(Edible food) {
-        if (food instanceof Corn) {
-            Basket basket = Basket.getInstance();
-            basket.takeFrom(food);
-            System.out.println(getName() + " the Chicken is eating corn.");
-            hasBeenFertilized = false;
-        } else {
-            System.out.println(getName() + " the Chicken didn't eat anything.");
-        }
-    }
-
-    @Override
-    public void yield() {
-        if (!hasBeenFertilized) {
-            Egg egg = new Egg();
-            eggs.add(egg);
-            hasBeenFertilized = true;
-        } else {
-            System.out.println("No egg laid");
-        }
     }
 
     public List<Egg> getEggs() {
@@ -64,19 +35,34 @@ public class Chicken extends Animal implements Produce, Edible, NoiseMaker {
     }
 
     @Override
-    public void makeNoise() {
-        System.out.println(super.getSound());
-
+    public void yield() {
+        if (!hasBeenFertilized) {
+            Egg egg = new Egg();
+            eggs.add(egg);
+            hasBeenFertilized = true;
+        } else {
+            System.out.println("No egg laid");
+        }
     }
-    public Egg collectEgg() {
+    public void collectEgg() {
         Egg eggToAdd = null;
         for (Egg egg: eggs) {
             if (egg != null) {
                 eggToAdd = egg;
+                Basket.getInstance().addTo(eggToAdd);
                 eggs.remove(egg);
+                break;
             }
-
         }
-        return eggToAdd;
+    }
+
+    @Override
+    public void makeNoise() {
+        System.out.println("Chicken " + getName() + getSound());
+    }
+
+    @Override
+    public void eat() {
+
     }
 }
