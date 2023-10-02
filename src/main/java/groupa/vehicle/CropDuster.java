@@ -15,19 +15,20 @@ public class CropDuster extends Aircraft implements FarmVehicle {
 
     }
     @Override
-    public boolean operate() {
-        fly();
+    public void fly(Field field){
+        fertilize(field);
+    }
+    @Override
+    public void operate(boolean inUse) {
+       setInUse(inUse);
 
-        return true;
     }
 
     @Override
     public void makeNoise() {
-
+        System.out.println(getSound());
     }
 
-    @Override
-    public void setInUse() {
 
-    }
+
 }

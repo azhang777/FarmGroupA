@@ -1,7 +1,7 @@
 package groupa.vehicle;
 
-public abstract class Aircraft extends Vehicle{
-    public void fly(){
+import groupa.farm.Field;
 
-    }
+public abstract class Aircraft extends Vehicle{
+    public abstract void fly(Field field);
 }

@@ -8,5 +8,5 @@ public interface FarmVehicle {
      * the field of crop rows. If vehicle is not in use, it cannot operate on the
      * field and return false.
      */
-    boolean operate();
+   public void operate(boolean inUse);
 }
