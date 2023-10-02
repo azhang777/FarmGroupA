@@ -36,6 +36,7 @@ public class Chicken extends Animal implements Produce, Edible, NoiseMaker {
             case 2 -> Basket.getInstance().takeCorn();
             case 3 -> System.out.println("Chicken cannot eat egg!");
         }
+        scanner.close();
     }
 
     @Override
