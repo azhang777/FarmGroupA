@@ -1,5 +1,6 @@
 package groupa.person;
 
+import groupa.crop.Basket;
 import groupa.interfaces.Eater;
 import groupa.interfaces.NoiseMaker;
 
@@ -38,4 +39,5 @@ import groupa.interfaces.NoiseMaker;
         public void setAge(int age) {
             this.age = age;
         }
+
     }

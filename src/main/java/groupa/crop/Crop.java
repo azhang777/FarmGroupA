@@ -1,30 +1,32 @@
 package groupa.crop;
 
-public abstract class Crop {
-    private boolean fertilized;
-    private boolean harvested;
+import groupa.interfaces.Produce;
 
-    public Crop(boolean fertilized, boolean harvested) {
-        this.fertilized = fertilized;
-        this.harvested = harvested;
+//done
+public abstract class Crop implements Produce {
+    private boolean hasBeenFertilized;
+    private boolean hasBeenHarvested;
+
+    public Crop(boolean hasBeenFertilized, boolean hasBeenHarvested) {
+        this.hasBeenFertilized = hasBeenFertilized;
+        this.hasBeenHarvested = hasBeenHarvested;
     }
 
-    public boolean isFertilized() {
-        return fertilized;
+    public boolean checkFertilized() {
+        return hasBeenFertilized;
     }
 
-    public void setFertilized(boolean fertilized) {
-        this.fertilized = fertilized;
+    public void setHasBeenFertilized(boolean hasBeenFertilized) {
+        this.hasBeenFertilized = hasBeenFertilized;
     }
 
-    public boolean isHarvested() {
-        return harvested;
+    public boolean checkHarvested() {
+        return hasBeenHarvested;
     }
 
-    public void setHarvested(boolean harvested) {
-        this.harvested = harvested;
+    public void setHasBeenHarvested(boolean hasBeenHarvested) {
+        this.hasBeenHarvested = hasBeenHarvested;
     }
 
-
-    public abstract void harvested();
+    public abstract void pick();
 }
