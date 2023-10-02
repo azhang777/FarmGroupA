@@ -2,11 +2,12 @@ package groupa.crop;
 
 import groupa.interfaces.Edible;
 
+//done
 public class Tomato implements Edible {
-    private boolean isEdible;
+    private final boolean isEdible = true;
 
     @Override
     public boolean getIfEdible() {
-        return false;
+        return isEdible;
     }
 }
