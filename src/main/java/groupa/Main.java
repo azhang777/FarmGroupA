@@ -78,9 +78,7 @@ public class Main {
         4 ChickenCoops of 15 Chickens, 2 Farm Vehicles (tractors), 1 Aircraft (crop duster)
          */
 
-        WeeklySchedule weeklySchedule = new WeeklySchedule(farm, froilan, froilanda, tractor, cropDuster);
-        weeklySchedule.sunday();
-        weeklySchedule.monday();
-        weeklySchedule.tuesday();
+        WeeklySchedule weeklySchedule = new WeeklySchedule(farm, froilan, froilanda, tractor, tractor2, cropDuster);
+        weeklySchedule.startWeek();
     }
 }

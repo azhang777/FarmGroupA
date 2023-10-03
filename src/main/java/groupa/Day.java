@@ -16,4 +16,7 @@ public enum Day {
     public static void nextDay() {
         dayIndex = (dayIndex + 1) % daysOfWeek.length;
     }
+    public static void setDay(int day) {
+        dayIndex = day;
+    }
 }
