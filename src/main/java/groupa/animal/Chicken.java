@@ -36,9 +36,9 @@ public class Chicken extends Animal implements Produce, Edible, NoiseMaker {
         }
         return null;
     }
-    public void collectEgg(Egg egg) {
-        if (egg != null) {
-            Basket.getInstance().addTo(egg);
+    public void collectEgg() {
+        if (yields() != null) {
+            Basket.getInstance().addTo(yields());
         }
     }
 
@@ -50,5 +50,6 @@ public class Chicken extends Animal implements Produce, Edible, NoiseMaker {
     @Override
     public void eat() {
     Basket.getInstance().takeCorn(2);
+        this.hasBeenFertilized = false;
     }
 }
