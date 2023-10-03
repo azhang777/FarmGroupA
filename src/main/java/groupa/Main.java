@@ -58,7 +58,6 @@ public class Main {
         farm.setFarmHouse(farmHouse);
 
         Tractor tractor = new Tractor("VROOOOOOOOOOOOOO", 321);
-        Tractor tractor2 = new Tractor("CHCHCHHCHCCHCHHCHCH", 982);
         CropDuster cropDuster = new CropDuster("BZZZZZZZZZZZZZZZZZZZZZ", 123);
         System.out.println("Day:" + Day.getCurrentDay());
 

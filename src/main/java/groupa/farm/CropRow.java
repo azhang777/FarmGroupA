@@ -55,7 +55,7 @@ public class CropRow {
     public void harvestAllCrops() {
         crops.forEach(cropElement -> {
             cropElement.setHasBeenHarvested(true);
-            cropElement.yield();
+            cropElement.pick(cropElement.yields());
         });
     }
 }

@@ -19,10 +19,6 @@ public class Tractor extends Vehicle implements FarmVehicle {
 
             for (CropRow cropRow : cropRows) {
                 cropRow.harvestAllCrops();
-                for (Crop crop : cropRow.getCrops()){
-                    crop.yield();
-                    crop.pick();
-                }
             }
         }
         else {
