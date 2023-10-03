@@ -32,6 +32,13 @@ public class Pilot extends Person implements Rider {
         this.licenseId = licenseId;
     }
 
+    /**
+     *
+     * @param rideable
+    The mount method in the Pilot class is responsible for allowing the pilot to mount a rideable object,
+    such as an aircraft or a horse. It checks the type of the rideable object and its availability
+    before allowing the pilot to mount it.
+     */
     @Override
     public void mount(Rideable rideable) {
         if (rideable instanceof Aircraft) {
@@ -52,6 +59,13 @@ public class Pilot extends Person implements Rider {
 
     }
 
+    /**
+     *
+     * @param rideable
+     * The dismount method in the Pilot class is responsible for allowing the pilot to dismount a rideable object,
+     * such as an aircraft or a horse. It checks the type of the rideable object and its availability before allowing
+     * the pilot to dismount it.
+     */
     @Override
     public void dismount(Rideable rideable) {
         if (rideable instanceof Aircraft) {
@@ -71,16 +85,31 @@ public class Pilot extends Person implements Rider {
         }else System.out.println("You never mounted it");
     }
 
+    /**
+     *
+     * @return
+     * The isRiding method in the Pilot class is responsible for
+     * determining whether the pilot is currently riding a rideable object.
+     */
     @Override
     public boolean isRiding() {
         return isRiding;
     }
 
+    /**
+     * The makeNoise method in the
+     * Pilot class is responsible for printing the favorite phrase of the pilot.
+     */
     @Override
     public void makeNoise() {
         System.out.println(getFavPhrase());
     }
 
+    /**
+     * The eat method in the Pilot class is responsible for simulating the pilot trying to eat.
+     * It calls the takeTomato, takeEgg, and takeCorn methods from the Basket class to remove a specific
+     * number of tomatoes, eggs, and corn from the basket
+     */
     @Override
     public void eat() {
         System.out.println(getName() + " tries to eat.");

@@ -49,6 +49,6 @@ public class Chicken extends Animal implements Produce, Edible, NoiseMaker {
 
     @Override
     public void eat() {
-    Basket.getInstance().takeTomato(2);
+    Basket.getInstance().takeCorn(2);
     }
 }
