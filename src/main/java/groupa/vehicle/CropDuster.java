@@ -11,6 +11,10 @@ public class CropDuster extends Aircraft implements FarmVehicle {
         super(sound, id);
     }
 
+    /**
+     * fertilizes each crop crow im a field
+     * @param field
+     */
     private void fertilize(Field field) {
     ArrayList<CropRow> cropRows = field.getCropRows();
     for (CropRow cropRow : cropRows) {
@@ -18,6 +22,11 @@ public class CropDuster extends Aircraft implements FarmVehicle {
     }
 
     }
+
+    /**
+     * calls fertilize and sets the crop duster to in use
+     * @param field
+     */
     @Override
     public void fly(Field field){
         if (isInUse()) {

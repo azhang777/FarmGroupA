@@ -11,6 +11,11 @@ public class Tractor extends Vehicle implements FarmVehicle {
         super(sound, id);
     }
 
+    /**
+     * The harvest method in the Tractor class is responsible for harvesting all the crops in a given field.
+     * It checks if the tractor is in use and then iterates over each crop row in the field, calling the harvestAllCrops method on each crop row
+     * @param field
+     */
     public void harvest(Field field){
 
         if (isInUse()) {
