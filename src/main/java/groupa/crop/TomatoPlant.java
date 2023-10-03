@@ -1,14 +1,16 @@
 package groupa.crop;
 
+import groupa.interfaces.Edible;
+
 import java.util.ArrayList;
 
 public class TomatoPlant extends Crop {
 
     //assume when the TomatoPlant object is create, it has no tomatoes.
-    private ArrayList<Tomato> tomatoes;
+   // private ArrayList<Tomato> tomatoes;
     public TomatoPlant() {
         super(false,false);
-        tomatoes = new ArrayList<>();
+      //  tomatoes = new ArrayList<>();
     }
 
     /** UTILITY FUNCTION -> provide modularity: yield will only return an edible. Now make a function that can store that edible.
@@ -17,16 +19,17 @@ public class TomatoPlant extends Crop {
      * else log that the crop is not ready to be harvested and return null.
      */
     @Override
-    public void yield() {
+    public Edible yields() {
         if (this.checkFertilized() && this.checkHarvested()) {
             Tomato newTomato = new Tomato();
-            tomatoes.add(newTomato);
             this.setHasBeenFertilized(false);
             this.setHasBeenHarvested(false);
+            return newTomato;
         }
         else {
             System.out.println("Tomato plant not ready to be harvested!");
         }
+        return null;
     }
 
 
@@ -34,16 +37,9 @@ public class TomatoPlant extends Crop {
      *
      */
     @Override
-    public void pick() {
-        Tomato tomatoToAdd = null;
-        for (Tomato tomato: tomatoes) {
-            if (tomato != null) {
-                tomatoToAdd = tomato;
-                Basket.getInstance().addTo(tomatoToAdd);
-                tomatoes.remove(tomato);
-                break;
-            }
-
+    public void pick(Edible edible) {
+        if (edible != null) {
+            Basket.getInstance().addTo(edible);
         }
     }
 }
