@@ -7,5 +7,9 @@ public abstract class Aircraft extends Vehicle{
         super(sound, id);
     }
 
+    /**
+     * will get overridden in cropduster class
+     * @param field
+     */
     public abstract void fly(Field field);
 }

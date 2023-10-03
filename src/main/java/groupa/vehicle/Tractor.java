@@ -33,12 +33,18 @@ public class Tractor extends Vehicle implements FarmVehicle {
 
     }
 
-
+    /**
+     * this sets the tractor in use
+     * @param inUse
+     */
     @Override
     public void operate(boolean inUse) {
       setInUse(inUse);
     }
 
+    /**
+     * this plays the tractor sound
+     */
     @Override
     public void makeNoise() {
         System.out.println(getSound());

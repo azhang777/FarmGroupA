@@ -12,7 +12,7 @@ public class CropDuster extends Aircraft implements FarmVehicle {
     }
 
     /**
-     * fertilizes each crop crow im a field
+     * fertilizes each crop row im a field
      * @param field
      */
     private void fertilize(Field field) {
@@ -24,7 +24,7 @@ public class CropDuster extends Aircraft implements FarmVehicle {
     }
 
     /**
-     * calls fertilize and sets the crop duster to in use
+     * calls fertilize and checks if cropduster is set in use
      * @param field
      */
     @Override
@@ -37,12 +37,20 @@ public class CropDuster extends Aircraft implements FarmVehicle {
             System.out.println("No pilot to fertilize field with crop duster!");
         }
     }
+
+    /**
+     * sets the cropduster to inuse
+     * @param inUse
+     */
     @Override
     public void operate(boolean inUse) {
        setInUse(inUse);
 
     }
 
+    /**
+     * plays sound
+     */
     @Override
     public void makeNoise() {
         System.out.println(getSound());
