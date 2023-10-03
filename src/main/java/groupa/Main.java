@@ -3,6 +3,9 @@ package groupa;
 import groupa.animal.Chicken;
 import groupa.animal.Horse;
 import groupa.crop.*;
+import groupa.farm.CropRow;
+
+import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
@@ -34,5 +37,8 @@ public class Main {
         /*
         best solution?: instead of having individual array
          */
+
+
+        CropRow cropRow = new CropRow(new ArrayList<Crop>());
     }
 }

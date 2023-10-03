@@ -1,17 +1,19 @@
 package groupa.farm;
 
+import groupa.crop.Corn;
+import groupa.crop.CornStalk;
 import groupa.crop.Crop;
 
 import java.util.ArrayList;
 
 public class CropRow {
-    private ArrayList<Crop> crops;
+    private ArrayList<? extends Crop> crops;
 
-    public CropRow(ArrayList<Crop> crops) {
+    public CropRow(ArrayList<? extends Crop> crops) {
         this.crops = crops;
     }
 
-    public ArrayList<Crop> getCrops() {
+    public ArrayList<? extends Crop> getCrops() {
         return crops;
     }
 
