@@ -6,8 +6,8 @@ import groupa.interfaces.Rideable;
 public abstract class Vehicle implements Rideable, NoiseMaker {
     private boolean inUse = false;
     private String sound;
-    private int id;
-    public Vehicle(String sound, int id) {
+    private long id;
+    public Vehicle(String sound, long id) {
         this.sound = sound;
         this.id = id;
     }
@@ -27,7 +27,7 @@ public abstract class Vehicle implements Rideable, NoiseMaker {
     }
 
     public int getId() {
-        return id;
+        return (int) id;
     }
 
     public void setId(int id) {
