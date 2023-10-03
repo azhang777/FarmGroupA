@@ -1,5 +1,6 @@
 package groupa.crop;
 
+import groupa.interfaces.Edible;
 import groupa.interfaces.Produce;
 
 //done
@@ -28,5 +29,5 @@ public abstract class Crop implements Produce {
         this.hasBeenHarvested = hasBeenHarvested;
     }
 
-    public abstract void pick();
+    public abstract void pick(Edible edible);
 }
