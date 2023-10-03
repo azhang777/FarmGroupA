@@ -7,16 +7,28 @@ import java.util.ArrayList;
 
 public class Tractor extends Vehicle implements FarmVehicle {
 
-    public void harvest(Field field){
-        ArrayList<CropRow> cropRows = field.getCropRows();
+    public Tractor(String sound, int id) {
+        super(sound, id);
+    }
 
-        for (CropRow cropRow : cropRows) {
-            cropRow.harvestAllCrops();
-            for (Crop crop : cropRow.getCrops()){
-                crop.yield();
-                crop.pick();
+    public void harvest(Field field){
+
+        if (isInUse()) {
+            System.out.println("Farmer is now harvesting the field with the tractor!");
+            ArrayList<CropRow> cropRows = field.getCropRows();
+
+            for (CropRow cropRow : cropRows) {
+                cropRow.harvestAllCrops();
+                for (Crop crop : cropRow.getCrops()){
+                    crop.yield();
+                    crop.pick();
+                }
             }
         }
+        else {
+            System.out.println("No rider to harvest field with tractor!");
+        }
+
 
     }
 

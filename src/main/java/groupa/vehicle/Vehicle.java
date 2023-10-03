@@ -7,12 +7,9 @@ public abstract class Vehicle implements Rideable, NoiseMaker {
     private boolean inUse = false;
     private String sound;
     private int id;
-    public Vehicle(boolean inUse) {
-        this.inUse = inUse;
-    }
-
-    public Vehicle() {
-        this(false);
+    public Vehicle(String sound, int id) {
+        this.sound = sound;
+        this.id = id;
     }
 
 
