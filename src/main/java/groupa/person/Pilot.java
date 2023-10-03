@@ -1,6 +1,7 @@
 package groupa.person;
 
 
+import groupa.animal.Horse;
 import groupa.crop.Basket;
 import groupa.interfaces.Edible;
 import groupa.interfaces.FarmVehicle;
@@ -39,7 +40,10 @@ public class Pilot extends Person implements Rider {
                     ((CropDuster) rideable).operate(true);
 
                 }
-
+            } else if (rideable instanceof Horse) {
+                if (!rideable.isInUse()) {
+                    (rideable).setInUse(true);
+                }
             }
         } else System.out.println("Pilot is not licenced to mount this");
 
@@ -53,6 +57,9 @@ public class Pilot extends Person implements Rider {
                     ((CropDuster) rideable).operate(false);
 
                 }
+            } else if (rideable instanceof Horse) {
+                if (rideable.isInUse()) {
+                    (rideable).setInUse(false);}
 
             } else System.out.println("You never mounted it");
 
