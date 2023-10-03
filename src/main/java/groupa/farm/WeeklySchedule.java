@@ -71,37 +71,50 @@ public class WeeklySchedule {
     private void sunday() {
         System.out.println("\n SUNDAY:\n#######################");
         morningRoutine();
-        System.out.println("Items left int the basket: " + Basket.getInstance().totalAmount() + "\n");
         froilan.plant(new CornStalk(), farm.getField().getCropRows().get(0));
         froilan.plant(new TomatoPlant(), farm.getField().getCropRows().get(1));
         froilan.plant(new TomatoPlant(), farm.getField().getCropRows().get(2));
         System.out.println("Items left int the basket: " + Basket.getInstance().totalAmount() + "\n");
     }
+
     private void monday() {
         System.out.println("\n MONDAY:\n#######################");
         morningRoutine();
-        System.out.println("Items left int the basket: " + Basket.getInstance().totalAmount() + "\n");
+
         cropDuster.fly(farm.getField());
         froilanda.mount(cropDuster);
         cropDuster.fly(farm.getField());
         froilanda.dismount(cropDuster);
-        System.out.println("Items left int the basket: " + Basket.getInstance().totalAmount() + "\n");
+        System.out.println("By end of Monday, there are " + Basket.getInstance().totalAmount() + " items left int the basket: \n");
     }
 
     private void tuesday() {
         System.out.println("\n TUESDAY:\n#######################");
         morningRoutine();
-        System.out.println("Items left int the basket: " + Basket.getInstance().totalAmount() + "\n");
+
         tractor1.harvest(farm.getField());
         froilan.mount(tractor1);
         tractor1.harvest(farm.getField());
-        System.out.println("Items left int the basket: " + Basket.getInstance().totalAmount() + "\n");
+        System.out.println("By end of Tuesday, there are " + Basket.getInstance().totalAmount() + " items left int the basket: \n");
     }
 
     private void wednesday() {
         System.out.println("\n WEDNESDAY:\n#######################");
         morningRoutine();
-
+        for (int i = 0; i < 10; i++) {
+            Crop crop = null;
+            int random = (int) (Math.random() * 2);
+            if (random == 0) {
+                crop = new CornStalk();
+            } else if (random == 1) {
+                crop = new TomatoPlant();
+            }
+            froilan.plant(crop, farm.getField().getCropRows().get(0));
+            froilan.plant(crop, farm.getField().getCropRows().get(1));
+            froilan.plant(crop, farm.getField().getCropRows().get(2));
+            froilan.plant(crop, farm.getField().getCropRows().get(3));
+            froilan.plant(crop, farm.getField().getCropRows().get(4));
+        }
     }
 
     private void thursday() {
@@ -125,6 +138,7 @@ public class WeeklySchedule {
         // food is hardcoded into Froilan's (The only Farmer) and Froilanda's (The only Pilot) eat methods
         froilan.eat();
         froilanda.eat();
+        System.out.println("After morning routine, there are " + Basket.getInstance().totalAmount() + " items left int the basket: \n");
     }
 
     private void rideAllHorsesInEachStable() {

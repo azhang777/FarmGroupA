@@ -11,7 +11,7 @@ public enum Day {
     };
 
     public static int getCurrentDay() {
-        return daysOfWeek[dayIndex];
+        return daysOfWeek[dayIndex] - 1;
     }
     public static void nextDay() {
         dayIndex = (dayIndex + 1) % daysOfWeek.length;

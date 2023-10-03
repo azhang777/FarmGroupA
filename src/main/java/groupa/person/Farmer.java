@@ -42,6 +42,7 @@ public class Farmer extends Person implements Botanist, Rider {
 //The plant method in the Farmer class is used to add a Crop object to a CropRow object.
     @Override
     public void plant(Crop crop, CropRow cropRow) {
+        System.out.println(getName() + " is planting in row:" + cropRow.getRowNumber());
         cropRow.getCrops().add(crop);
     }
 

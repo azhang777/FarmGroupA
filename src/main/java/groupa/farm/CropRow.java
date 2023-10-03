@@ -15,6 +15,18 @@ public class CropRow {
         totalRows++;
     }
 
+    public int getRowNumber() {
+        return rowNumber;
+    }
+
+    public ArrayList<Crop> getCrops() {
+        return crops;
+    }
+
+    public void setCrops(ArrayList<Crop> crops) {
+        this.crops = crops;
+    }
+
     public void addCrop(Crop crop) {
         if (rowNumber == 0 && crop instanceof CornStalk) {
             crops.add(crop);
@@ -30,14 +42,6 @@ public class CropRow {
             }
         }
     }
-    public ArrayList<Crop> getCrops() {
-        return crops;
-    }
-
-    public void setCrops(ArrayList<Crop> crops) {
-        this.crops = crops;
-    }
-
     /**
      * when crop duster operates, all cropRows in the field will call this method.
      * All crops in cropRow will have their fertilized = true
