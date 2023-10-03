@@ -16,7 +16,7 @@ public class Pilot extends Person implements Rider {
 
     private long licenseId;
     private static long counter;
-
+    private boolean isRiding;
 
     public Pilot(String name, String favPhrase, int age) {
         super(name, favPhrase, age);
@@ -37,15 +37,17 @@ public class Pilot extends Person implements Rider {
         if (rideable instanceof Aircraft) {
             if (rideable instanceof CropDuster) {
                 if (!rideable.isInUse()) {
+                    System.out.println(getName() + " is now operating the vehicle under #" + ((CropDuster) rideable).getId());
                     ((CropDuster) rideable).operate(true);
 
                 }
-            } else if (rideable instanceof Horse) {
-                if (!rideable.isInUse()) {
-                    (rideable).setInUse(true);
-                }
             }
-        } else System.out.println("Pilot is not licenced to mount this");
+        } else if (rideable instanceof Horse) {
+            if (!rideable.isInUse()) {
+                (rideable).setInUse(true);
+            }
+        }
+        else System.out.println("Pilot is not licenced to mount this");
 
     }
 
@@ -54,16 +56,22 @@ public class Pilot extends Person implements Rider {
         if (rideable instanceof Aircraft) {
             if (rideable instanceof CropDuster) {
                 if (rideable.isInUse()) {
+                    System.out.println(getName() + " is leaving the vehicle under " + ((CropDuster) rideable).getId());
                     ((CropDuster) rideable).operate(false);
 
                 }
-            } else if (rideable instanceof Horse) {
-                if (rideable.isInUse()) {
-                    (rideable).setInUse(false);}
+            }
 
-            } else System.out.println("You never mounted it");
+        } else if (rideable instanceof Horse) {
+            if (rideable.isInUse()) {
+                (rideable).setInUse(false);
+            }
+        }else System.out.println("You never mounted it");
+    }
 
-        }
+    @Override
+    public boolean isRiding() {
+        return isRiding;
     }
 
     @Override
@@ -73,10 +81,9 @@ public class Pilot extends Person implements Rider {
 
     @Override
     public void eat() {
+        System.out.println(getName() + " tries to eat.");
         Basket.getInstance().takeTomato(1);
         Basket.getInstance().takeEgg(2);
         Basket.getInstance().takeCorn(2);
-        System.out.println(getName() + " has had a full meal ");
-
     }
 }

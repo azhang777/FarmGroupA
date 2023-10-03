@@ -4,44 +4,85 @@ import groupa.animal.Egg;
 import groupa.interfaces.Edible;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
-//need to add ways to find what items are in the arrayList edibles
 public final class Basket {
     private final static Basket basket = new Basket();
     ArrayList<Edible> edibles;
     private Basket() {
         edibles = new ArrayList<>();
+        for (int i = 0; i < 90; i++) {
+            edibles.add(new Corn());
+        }
+        for (int i = 0; i < 30; i++) {
+            edibles.add(new Tomato());
+            edibles.add(new Egg());
+        }
     }
 
     public void addTo(Edible edible) {
         edibles.add(edible);
     }
 
-    public boolean takeCorn(int count) {
+    public void takeCorn(int count) {
+        int cornRemoved = 0;
+        Iterator<Edible> iterator = edibles.iterator();
         if (checkIfAvailable(1) < count) {
             System.out.println("Not enough corn. corn count: " + checkIfAvailable(1));
-            return false;
+            return;
         }
-        edibles.removeIf(item -> item instanceof Corn);
-        return true;
+
+        while (iterator.hasNext() && cornRemoved < count) {
+            Edible item = iterator.next();
+            if (item instanceof Corn) {
+                iterator.remove();
+                cornRemoved++;
+            }
+        }
     }
 
-    public boolean takeTomato(int count) {
+    public void takeTomato(int count) {
+        int tomatoRemoved = 0;
+        Iterator<Edible> iterator = edibles.iterator();
+
         if (checkIfAvailable(2) < count) {
             System.out.println("Not enough tomato. tomato count: " + checkIfAvailable(2));
-            return false;
+            return;
         }
-        edibles.removeIf(item -> item instanceof Tomato);
-        return true;
+
+        while (iterator.hasNext() && tomatoRemoved < count) {
+            Edible item = iterator.next();
+            if (item instanceof Tomato) {
+                iterator.remove();
+                tomatoRemoved++;
+            }
+        }
+
+        System.out.println(count + " tomato removed from the basket.");
     }
 
-    public boolean takeEgg(int count) {
+    public void takeEgg(int count) {
+        int eggRemoved = 0;
+        Iterator<Edible> iterator = edibles.iterator();
+
         if (checkIfAvailable(3) < count) {
             System.out.println("Not enough egg. egg count: " + checkIfAvailable(3));
-            return false;
+            return;
         }
-        edibles.removeIf(item -> item instanceof Tomato);
-        return true;
+
+        while (iterator.hasNext() && eggRemoved < count) {
+            Edible item = iterator.next();
+            if (item instanceof Egg) {
+                iterator.remove();
+                eggRemoved++;
+            }
+        }
+
+        System.out.println(count + " eggs removed from the basket.");
+        /*
+        edibles.removeIf(item -> item instanceof Egg);
+        this will remove all instances!
+         */
     }
 
     public int totalAmount() {

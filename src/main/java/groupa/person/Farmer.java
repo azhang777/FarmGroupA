@@ -3,6 +3,7 @@ package groupa.person;
 import groupa.animal.Horse;
 import groupa.crop.Basket;
 import groupa.crop.Crop;
+import groupa.crop.Tomato;
 import groupa.farm.CropRow;
 import groupa.interfaces.*;
 import groupa.vehicle.Aircraft;
@@ -33,18 +34,15 @@ public class Farmer extends Person implements Botanist, Rider {
 
     @Override
     public void eat() {
+        System.out.println(getName() + " tries to eat.");
         Basket.getInstance().takeTomato(2);
         Basket.getInstance().takeEgg(5);
         Basket.getInstance().takeCorn(1);
-        System.out.println(getName() + " has had a full meal ");
-
-
     }
 //The plant method in the Farmer class is used to add a Crop object to a CropRow object.
     @Override
     public void plant(Crop crop, CropRow cropRow) {
         cropRow.getCrops().add(crop);
-
     }
 
     /*
@@ -59,6 +57,7 @@ public class Farmer extends Person implements Botanist, Rider {
         if (rideable instanceof FarmVehicle) {
             if (rideable instanceof Tractor) {
                 if (!rideable.isInUse()) {
+                    System.out.println(getName() + " is now operating the vehicle under " + ((Tractor) rideable).getId());
                     ((Tractor) rideable).operate(true);
 
                 }
@@ -85,6 +84,7 @@ public class Farmer extends Person implements Botanist, Rider {
             }
         } else if (rideable instanceof Horse) {
             if (rideable.isInUse()) {
+                System.out.println(getName() + " is leaving the vehicle under " + ((Tractor) rideable).getId());
                 (rideable).setInUse(false);
 
             } else

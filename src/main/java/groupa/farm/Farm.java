@@ -25,14 +25,29 @@ public class Farm {
         return chickenCoops;
     }
 
+    public FarmHouse getFarmHouse() {
+        return farmHouse;
+    }
+
+    public Field getField() {
+        return field;
+    }
+
     public void addStables(Stable stable) {
         this.stables.add(stable);
     }
 
     public void addChickenCoop(ChickenCoop chickenCoop) {
-        chickenCoops.add(chickenCoop);
+        this.chickenCoops.add(chickenCoop);
     }
 
+    public void setFarmHouse(FarmHouse farmHouse) {
+        this.farmHouse = farmHouse;
+    }
+
+    public void setField(Field field) {
+        this.field = field;
+    }
     // toStrings need to be Overrided for corresponding classes
     public void printFarm() {
         System.out.println(stables);

@@ -1,33 +1,51 @@
 package groupa.farm;
 
 import groupa.animal.Horse;
+import groupa.crop.*;
 import groupa.interfaces.Rider;
 import groupa.person.Farmer;
 import groupa.person.Person;
 import groupa.person.Pilot;
+import groupa.vehicle.CropDuster;
+import groupa.vehicle.Tractor;
 
 // hardcoding Froilan and Froilanda for test purposes
 public class WeeklySchedule {
     private Farm farm;
     private Farmer froilan;
     private Pilot froilanda;
-    public WeeklySchedule(Farm farm, Farmer froilan, Pilot froilanda) {
+    private Tractor tractor1;
+    private Tractor tractor2;
+    private CropDuster cropDuster;
+
+    public WeeklySchedule(Farm farm, Farmer froilan, Pilot froilanda, Tractor tractor1, Tractor tractor2, CropDuster cropDuster) {
         this.farm = farm;
         this.froilan = froilan;
         this.froilanda = froilanda;
+        this.tractor1 = tractor1;
+        this.tractor2 = tractor2;
+        this.cropDuster = cropDuster;
     }
 
     public void sunday() {
         morningRoutine();
-
-
+        froilan.plant(new CornStalk(), farm.getField().getCropRows().get(0));
+        froilan.plant(new TomatoPlant(), farm.getField().getCropRows().get(1));
+        froilan.plant(new TomatoPlant(), farm.getField().getCropRows().get(2));
     }
     public void monday() {
         morningRoutine();
+        cropDuster.fly(farm.getField());
+        froilanda.mount(cropDuster);
+        cropDuster.fly(farm.getField());
+        froilanda.dismount(cropDuster);
     }
 
     public void tuesday() {
         morningRoutine();
+        tractor1.harvest(farm.getField());
+        froilan.mount(tractor1);
+        tractor1.harvest(farm.getField());
     }
 
     public void wednesday() {
@@ -49,7 +67,7 @@ public class WeeklySchedule {
     private void morningRoutine() {
         rideAllHorsesInEachStable();
         feedAllHorsesInEachStable();
-
+        System.out.println("Items left int the basket: " + Basket.getInstance().totalAmount() + "\n");
         // food is hardcoded into Froilan's (The only Farmer) and Froilanda's (The only Pilot) eat methods
         froilan.eat();
         froilanda.eat();
