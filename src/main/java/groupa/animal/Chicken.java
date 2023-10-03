@@ -4,27 +4,34 @@ import groupa.crop.Basket;
 import groupa.interfaces.Edible;
 import groupa.interfaces.NoiseMaker;
 import groupa.interfaces.Produce;
-import java.util.ArrayList;
-import java.util.List;
+
 
 
 public class Chicken extends Animal implements Produce, Edible, NoiseMaker {
 
     private boolean hasBeenFertilized;
-    //private List<Egg> eggs;
     private final boolean isEdible = true;
 
+    /**
+     * Constructor for Chicken with name, age. and fertilization parameters
+     */
     public Chicken(String name, int age, boolean hasBeenFertilized) {
         super("Cluck", name, age);
         this.hasBeenFertilized = hasBeenFertilized;
-        //this.eggs = new ArrayList<>();
+
     }
 
+    /**
+     The getIfEdible method in the Chicken class returns a boolean value indicating whether the chicken is edible or not.
+     */
     @Override
     public boolean getIfEdible() {
         return isEdible;
     }
 
+    /**
+     * yields method determines whether Chicken can produce and egg or not.
+     */
     @Override
     public Edible yields() {
         if (!hasBeenFertilized) {
@@ -36,17 +43,27 @@ public class Chicken extends Animal implements Produce, Edible, NoiseMaker {
         }
         return null;
     }
+
+    /**
+     * The collectEgg method in the Chicken class is responsible for collecting an egg from a chicken and adding it to the Basket of edibles.
+     */
     public void collectEgg() {
         if (yields() != null) {
             Basket.getInstance().addTo(yields());
         }
     }
 
+    /**
+     * The makeNoise method in the Chicken class is responsible for printing out the sound of a chicken along with its name.
+     */
     @Override
     public void makeNoise() {
         System.out.println("Chicken " + getName() + getSound());
     }
 
+    /**
+     * The chicken eats 2 corns from the basket
+     */
     @Override
     public void eat() {
     Basket.getInstance().takeCorn(2);
