@@ -1,19 +1,36 @@
 package groupa.farm;
 
-import groupa.crop.Corn;
-import groupa.crop.CornStalk;
-import groupa.crop.Crop;
+import groupa.crop.*;
 
 import java.util.ArrayList;
 
 public class CropRow {
-    private ArrayList<? extends Crop> crops;
+    private static int totalRows;
+    private int rowNumber;
+    private ArrayList<Crop> crops;
 
-    public CropRow(ArrayList<? extends Crop> crops) {
-        this.crops = crops;
+    public CropRow() {
+        this.crops = new ArrayList<Crop>();
+        rowNumber = totalRows;
+        totalRows++;
     }
 
-    public ArrayList<? extends Crop> getCrops() {
+    public void addCrop(Crop crop) {
+        if (rowNumber == 0 && crop instanceof CornStalk) {
+            crops.add(crop);
+        }
+        else if (rowNumber == 1 && crop instanceof TomatoPlant) {
+            crops.add(crop);
+        }
+        else {
+            if (crop != null) {
+                crops.add(crop);
+            } else {
+                System.out.println("You are not adding anything");
+            }
+        }
+    }
+    public ArrayList<Crop> getCrops() {
         return crops;
     }
 
