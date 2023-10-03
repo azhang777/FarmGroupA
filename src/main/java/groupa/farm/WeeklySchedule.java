@@ -46,6 +46,7 @@ public class WeeklySchedule {
         tractor1.harvest(farm.getField());
         froilan.mount(tractor1);
         tractor1.harvest(farm.getField());
+        System.out.println(Basket.getInstance().totalAmount());
     }
 
     public void wednesday() {
@@ -84,14 +85,6 @@ public class WeeklySchedule {
                 int counter = 0;
                 int horseNumber = 0;
                 for (Horse horse : stable.getHorses()) {
-//                    if (froilan.isRiding()) {
-//                        froilan.dismount(stable.getHorses().get(horseNumber));
-//                        System.out.println("Froilan dismounted Horse " + horseNumber);
-//                    }
-//                    if (froilanda.isRiding()) {
-//                        froilanda.dismount(stable.getHorses().get(horseNumber));
-//                        System.out.println("Froilanda dismounted Horse " + horseNumber);
-//                    }
                     checkIfRidingHorse(froilan, stable, horseNumber);
                     checkIfRidingHorse(froilanda, stable, horseNumber);
                     if (counter % 2 == 0 || counter == 0) {
@@ -105,6 +98,8 @@ public class WeeklySchedule {
                     }
                     counter++;
                 }
+                checkIfRidingHorse(froilan, stable, horseNumber);
+                checkIfRidingHorse(froilanda, stable, horseNumber);
                 System.out.println();
             }
         }
@@ -128,14 +123,6 @@ public class WeeklySchedule {
                 int counter = 0;
                 int horseNumber = 0;
                 for (Horse horse : stable.getHorses()) {
-//                    if (froilan.isRiding()) {
-//                        froilan.dismount(stable.getHorses().get(horseNumber));
-//                        System.out.println("Froilan dismounted Horse " + horseNumber);
-//                    }
-//                    if (froilanda.isRiding()) {
-//                        froilanda.dismount(stable.getHorses().get(horseNumber));
-//                        System.out.println("Froilanda dismounted Horse " + horseNumber);
-//                    }
                     if (counter % 2 == 0 || counter == 0) {
                         horse.eat();
                         horseNumber = stable.getHorses().indexOf(horse);

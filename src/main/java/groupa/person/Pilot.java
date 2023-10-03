@@ -39,12 +39,13 @@ public class Pilot extends Person implements Rider {
                 if (!rideable.isInUse()) {
                     System.out.println(getName() + " is now operating the vehicle under #" + ((CropDuster) rideable).getId());
                     ((CropDuster) rideable).operate(true);
-
+                    isRiding = true;
                 }
             }
         } else if (rideable instanceof Horse) {
             if (!rideable.isInUse()) {
                 (rideable).setInUse(true);
+                isRiding = true;
             }
         }
         else System.out.println("Pilot is not licenced to mount this");
@@ -58,13 +59,14 @@ public class Pilot extends Person implements Rider {
                 if (rideable.isInUse()) {
                     System.out.println(getName() + " is leaving the vehicle under " + ((CropDuster) rideable).getId());
                     ((CropDuster) rideable).operate(false);
-
+                    isRiding = false;
                 }
             }
 
         } else if (rideable instanceof Horse) {
             if (rideable.isInUse()) {
                 (rideable).setInUse(false);
+                isRiding = false;
             }
         }else System.out.println("You never mounted it");
     }

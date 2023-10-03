@@ -60,7 +60,19 @@ public class Main {
         Tractor tractor = new Tractor("VROOOOOOOOOOOOOO", 321);
         Tractor tractor2 = new Tractor("CHCHCHHCHCCHCHHCHCH", 982);
         CropDuster cropDuster = new CropDuster("BZZZZZZZZZZZZZZZZZZZZZ", 123);
+        System.out.println("Day:" + Day.getCurrentDay());
 
+        // add crops to each crop row
+        for (CropRow cropRow : field.getCropRows()) {
+            cropRow.addCrop(new CornStalk());
+            cropRow.addCrop(new CornStalk());
+            cropRow.addCrop(new CornStalk());
+            cropRow.addCrop(new CornStalk());
+            cropRow.addCrop(new TomatoPlant());
+            cropRow.addCrop(new TomatoPlant());
+            cropRow.addCrop(new TomatoPlant());
+            cropRow.addCrop(new TomatoPlant());
+        }
 
         /*
         Set up Farm that has Farmer, Pilot, Field of 5 Crop Rows, 3 Stables of 10 Horses,
@@ -68,8 +80,8 @@ public class Main {
          */
 
         WeeklySchedule weeklySchedule = new WeeklySchedule(farm, froilan, froilanda, tractor, tractor2, cropDuster);
-//        weeklySchedule.sunday();
+        weeklySchedule.sunday();
         weeklySchedule.monday();
-//        weeklySchedule.tuesday();
+        weeklySchedule.tuesday();
     }
 }
