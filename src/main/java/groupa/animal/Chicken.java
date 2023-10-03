@@ -36,7 +36,7 @@ public class Chicken extends Animal implements Produce, Edible, NoiseMaker {
     public Edible yields() {
         if (!hasBeenFertilized) {
             Egg egg = new Egg();
-            hasBeenFertilized = true;
+            hasBeenFertilized = false;
             return egg;
         } else {
             System.out.println("No egg laid");
@@ -67,6 +67,6 @@ public class Chicken extends Animal implements Produce, Edible, NoiseMaker {
     @Override
     public void eat() {
     Basket.getInstance().takeCorn(2);
-        this.hasBeenFertilized = false;
+        this.hasBeenFertilized = true;
     }
 }
