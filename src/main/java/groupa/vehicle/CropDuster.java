@@ -7,7 +7,7 @@ import groupa.farm.CropRow;
 import java.util.ArrayList;
 
 public class CropDuster extends Aircraft implements FarmVehicle {
-    public CropDuster(String sound, int id) {
+    public CropDuster(String sound, long id) {
         super(sound, id);
     }
 

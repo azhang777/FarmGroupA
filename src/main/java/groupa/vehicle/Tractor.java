@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class Tractor extends Vehicle implements FarmVehicle {
 
-    public Tractor(String sound, int id) {
+    public Tractor(String sound, long id) {
         super(sound, id);
     }
 

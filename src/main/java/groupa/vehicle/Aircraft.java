@@ -3,7 +3,7 @@ package groupa.vehicle;
 import groupa.farm.Field;
 
 public abstract class Aircraft extends Vehicle{
-    public Aircraft(String sound, int id) {
+    public Aircraft(String sound, long id) {
         super(sound, id);
     }
 
