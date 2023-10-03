@@ -80,8 +80,6 @@ public class Main {
          */
 
         WeeklySchedule weeklySchedule = new WeeklySchedule(farm, froilan, froilanda, tractor, tractor2, cropDuster);
-        weeklySchedule.sunday();
-        weeklySchedule.monday();
-        weeklySchedule.tuesday();
+        weeklySchedule.startWeek();
     }
 }
