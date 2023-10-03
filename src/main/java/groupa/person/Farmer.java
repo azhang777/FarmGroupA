@@ -59,6 +59,7 @@ public class Farmer extends Person implements Botanist, Rider {
                 if (!rideable.isInUse()) {
                     System.out.println(getName() + " is now operating the vehicle under " + ((Tractor) rideable).getId());
                     ((Tractor) rideable).operate(true);
+                    isRiding = true;
 
                 }
 
@@ -66,9 +67,10 @@ public class Farmer extends Person implements Botanist, Rider {
         } else if (rideable instanceof Horse) {
             if (!rideable.isInUse()) {
                 (rideable).setInUse(true);
-
-            } else
+                isRiding = true;
+            } else {
                 System.out.println("Farmer is not able to ride this he is tooo dumb");
+            }
         }
     }
 
@@ -77,6 +79,7 @@ public class Farmer extends Person implements Botanist, Rider {
         if (rideable instanceof FarmVehicle) {
             if (rideable instanceof Tractor) {
                 if (rideable.isInUse()) {
+                    isRiding = false;
                     ((Tractor) rideable).operate(false);
 
                 }
@@ -84,8 +87,8 @@ public class Farmer extends Person implements Botanist, Rider {
             }
         } else if (rideable instanceof Horse) {
             if (rideable.isInUse()) {
-                System.out.println(getName() + " is leaving the vehicle under " + ((Tractor) rideable).getId());
                 (rideable).setInUse(false);
+                isRiding = false;
 
             } else
                 System.out.println("You cannot dismount");
