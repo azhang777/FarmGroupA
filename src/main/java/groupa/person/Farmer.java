@@ -52,6 +52,7 @@ public class Farmer extends Person implements Botanist, Rider {
      */
     @Override
     public void plant(Crop crop, CropRow cropRow) {
+        System.out.println(getName() + " is planting in row:" + cropRow.getRowNumber());
         cropRow.getCrops().add(crop);
     }
 

@@ -79,10 +79,7 @@ public final class Basket {
         }
 
         System.out.println(count + " eggs removed from the basket.");
-        /*
-        edibles.removeIf(item -> item instanceof Egg);
-        this will remove all instances!
-         */
+
     }
 
     public int totalAmount() {
