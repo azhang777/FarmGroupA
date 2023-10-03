@@ -13,6 +13,7 @@ public class Horse extends Animal implements Rideable {
         this.isGalloping = false;
         this.inUse = false;
     }
+
     public boolean isGalloping() {
         return isGalloping;
     }
@@ -22,15 +23,16 @@ public class Horse extends Animal implements Rideable {
     }
 
     @Override
+    public void setInUse(boolean inUse) {
+        this.inUse = inUse;
+    }
+
+
+    @Override
     public boolean isInUse() {
         return inUse;
     }
 
-    @Override
-    public void setInUse() {
-
-
-    }
 
     @Override
     public void makeNoise() {
