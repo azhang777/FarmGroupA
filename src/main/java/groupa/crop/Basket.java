@@ -11,7 +11,7 @@ public final class Basket {
     ArrayList<Edible> edibles;
     private Basket() {
         edibles = new ArrayList<>();
-        for (int i = 0; i < 90; i++) {
+        for (int i = 0; i < 140; i++) {
             edibles.add(new Corn());
         }
         for (int i = 0; i < 30; i++) {
@@ -86,6 +86,35 @@ public final class Basket {
         return edibles.size();
     }
 
+    public int getCornAmount() {
+        int cornCount = 0;
+        for (Edible item: edibles) {
+            if (item instanceof Corn) {
+                cornCount++;
+            }
+        }
+        return cornCount;
+    }
+
+    public int getTomatoAmount() {
+        int tomatoCount = 0;
+        for (Edible item: edibles) {
+            if (item instanceof Tomato) {
+                tomatoCount++;
+            }
+        }
+        return tomatoCount;
+    }
+
+    public int getEggAmount() {
+        int eggCount = 0;
+        for (Edible item: edibles) {
+            if (item instanceof Egg) {
+                eggCount++;
+            }
+        }
+        return eggCount;
+    }
     public static Basket getInstance() {
         return basket;
     }
