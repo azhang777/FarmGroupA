@@ -19,4 +19,35 @@ public enum Day {
     public static void setDay(int day) {
         dayIndex = day;
     }
+
+    public static String returnDayAsString(int dayNum) {
+        String dayString = "";
+        switch (dayNum) {
+            case 0:
+                dayString = "Sunday";
+                break;
+            case 1:
+                dayString = "Monday";
+                break;
+            case 2:
+                dayString = "Tuesday";
+                break;
+            case 3:
+                dayString = "Wednesday";
+                break;
+            case 4:
+                dayString = "Thursday";
+                break;
+            case 5:
+                dayString = "Friday";
+                break;
+            case 6:
+                dayString = "Saturday";
+                break;
+            default:
+                dayString = "Sunday";
+                break;
+        }
+        return dayString;
+    }
 }
