@@ -31,14 +31,14 @@ public class Main {
             farm.addChickenCoop(new ChickenCoop());
         }
         for (int i = 0; i < farm.getChickenCoops().size() - 1; i++) {
-            farm.getChickenCoops().get(i).addChicken(new Chicken("chicken", 1, true));
-            farm.getChickenCoops().get(i).addChicken(new Chicken("chicken", 1, true));
-            farm.getChickenCoops().get(i).addChicken(new Chicken("chicken", 1, true));
-            farm.getChickenCoops().get(i).addChicken(new Chicken("chicken", 1, true));
+            farm.getChickenCoops().get(i).addChicken(new Chicken("chicken", 1, false));
+            farm.getChickenCoops().get(i).addChicken(new Chicken("chicken", 1, false));
+            farm.getChickenCoops().get(i).addChicken(new Chicken("chicken", 1, false));
+            farm.getChickenCoops().get(i).addChicken(new Chicken("chicken", 1, false));
         }
-        farm.getChickenCoops().get(farm.getChickenCoops().size() - 1).addChicken(new Chicken("chicken", 1, true));
-        farm.getChickenCoops().get(farm.getChickenCoops().size() - 1).addChicken(new Chicken("chicken", 1, true));
-        farm.getChickenCoops().get(farm.getChickenCoops().size() - 1).addChicken(new Chicken("chicken", 1, true));
+        farm.getChickenCoops().get(farm.getChickenCoops().size() - 1).addChicken(new Chicken("chicken", 1, false));
+        farm.getChickenCoops().get(farm.getChickenCoops().size() - 1).addChicken(new Chicken("chicken", 1, false));
+        farm.getChickenCoops().get(farm.getChickenCoops().size() - 1).addChicken(new Chicken("chicken", 1, false));
 
         for (int i = 0; i < 3; i++) {
             farm.addStables(new Stable());
