@@ -10,10 +10,18 @@ public class Field {
         this.cropRows = new ArrayList<>();
     }
 
+    /**
+     *
+     * @return ArrayList of CropRow
+     */
     public ArrayList<CropRow> getCropRows() {
         return cropRows;
     }
 
+    /**
+     * Adds cropRow object to ArrayList
+     * @param cropRow
+     */
     public void addCropRow(CropRow cropRow) {
         cropRows.add(cropRow);
     }

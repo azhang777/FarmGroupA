@@ -12,10 +12,18 @@ public class Stable {
         this.horses = new ArrayList<>();
     }
 
+    /**
+     *
+     * @return ArrayList of Horse
+     */
     public ArrayList<Horse> getHorses() {
         return horses;
     }
 
+    /**
+     * Adds horse object to ArrayList
+     * @param horse
+     */
     public void addHorse(Horse horse) {
         this.horses.add(horse);
     }
