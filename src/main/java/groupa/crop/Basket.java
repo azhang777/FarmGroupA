@@ -83,6 +83,7 @@ public final class Basket {
     }
 
     public int totalAmount() {
+        edibles.removeIf(i -> i == null);
         return edibles.size();
     }
 
