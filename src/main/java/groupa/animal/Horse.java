@@ -8,6 +8,9 @@ public class Horse extends Animal implements Rideable {
     private boolean isGalloping;
     private boolean inUse;
 
+    /**
+     * Constructor for Horse. Gives name and age. Sets the isGalloping and inUse variables to false
+     */
     public Horse(String name, int age) {
         super("Neigh", name, age);
         this.isGalloping = false;
@@ -33,12 +36,17 @@ public class Horse extends Animal implements Rideable {
         return inUse;
     }
 
-
+    /**
+     * Horse sound of Neigh
+     */
     @Override
     public void makeNoise() {
         System.out.println("Horse " + getName() + getSound());
     }
 
+    /**
+     * Horse eats 3 corns from basket
+     */
     @Override
     public void eat() {
         Basket.getInstance().takeCorn(3);

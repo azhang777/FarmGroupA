@@ -8,7 +8,9 @@ public abstract class Animal implements Eater, NoiseMaker {
     private String name;
     private int age;
 
-
+    /**
+    All animals will have sound, name, and age parameters
+     */
     public Animal(String sound, String name, int age) {
         this.sound = sound;
         this.name = name;
