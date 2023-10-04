@@ -27,14 +27,18 @@ public class CropRow {
         this.crops = crops;
     }
 
+    /**
+     * Conditions for row 0 and 1 since they can only have CornStalk and TomatoPlant respectively. If it is any other row,
+     * we can add any type of Crop.
+     *
+     * @param crop
+     */
     public void addCrop(Crop crop) {
         if (rowNumber == 0 && crop instanceof CornStalk) {
             crops.add(crop);
-        }
-        else if (rowNumber == 1 && crop instanceof TomatoPlant) {
+        } else if (rowNumber == 1 && crop instanceof TomatoPlant) {
             crops.add(crop);
-        }
-        else {
+        } else {
             if (crop != null) {
                 crops.add(crop);
             } else {
@@ -42,8 +46,9 @@ public class CropRow {
             }
         }
     }
+
     /**
-     * when crop duster operates, all cropRows in the field will call this method.
+     * When crop duster operates, all cropRows in the field will call this method.
      * All crops in cropRow will have their fertilized = true
      */
     public void fertilizeAllCrops() {
@@ -51,10 +56,9 @@ public class CropRow {
     }
 
     /**
-     * when tractor operates, all cropsRows in the field will call this method
+     * When tractor operates, all cropsRows in the field will call this method
      * All crops in cropRow will have their harvested = true
-     * All crops will try to be harvested, adding a Tomato or Corn object to
-     * Arraylist in TomatoPlant and CornStalk objects respectively.
+     * Then we yield each crop element. If yields returns a non-null object, add it to Basket.
      */
     public void harvestAllCrops() {
         crops.forEach(cropElement -> {

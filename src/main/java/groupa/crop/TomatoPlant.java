@@ -2,21 +2,17 @@ package groupa.crop;
 
 import groupa.interfaces.Edible;
 
-import java.util.ArrayList;
-
 public class TomatoPlant extends Crop {
 
-    //assume when the TomatoPlant object is create, it has no tomatoes.
-   // private ArrayList<Tomato> tomatoes;
     public TomatoPlant() {
-        super(false,false);
-      //  tomatoes = new ArrayList<>();
+        super(false, false);
     }
 
-    /** UTILITY FUNCTION -> provide modularity: yield will only return an edible. Now make a function that can store that edible.
-     * if TomatoPlant fertilized = true (by crop duster operation) && harvested = true (by tractor operation),
-     * if true, add new tomato to the arrayList tomatoes, set (reset) fertilized and harvested to false, return the new tomato.
-     * else log that the crop is not ready to be harvested and return null.
+    /**
+     * Checks if the TomatoPlant is both fertilized and harvested, meaning CropDuster and Tractor
+     * has operated on this TomatoPlant. At that point, it is ready to yield its Tomato produce.
+     *
+     * @return Edible
      */
     @Override
     public Edible yields() {
@@ -25,21 +21,9 @@ public class TomatoPlant extends Crop {
             this.setHasBeenFertilized(false);
             this.setHasBeenHarvested(false);
             return newTomato;
-        }
-        else {
+        } else {
             System.out.println("Tomato plant not ready to be harvested!");
         }
         return null;
-    }
-
-
-    /**
-     *
-     */
-    @Override
-    public void pick(Edible edible) {
-        if (edible != null) {
-            Basket.getInstance().addTo(edible);
-        }
     }
 }
