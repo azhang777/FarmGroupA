@@ -47,9 +47,9 @@ public class Chicken extends Animal implements Produce, Edible, NoiseMaker {
     /**
      * The collectEgg method in the Chicken class is responsible for collecting an egg from a chicken and adding it to the Basket of edibles.
      */
-    public void collectEgg() {
-        if (yields() != null) {
-            Basket.getInstance().addTo(yields());
+    public void collectEgg(Edible egg) {
+        if (egg != null) {
+            Basket.getInstance().addTo(egg);
         }
     }
 

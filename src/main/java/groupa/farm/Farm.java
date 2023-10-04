@@ -131,7 +131,7 @@ public class Farm {
         for (ChickenCoop chickenCoop : getChickenCoops()) {
             for (Chicken chicken : chickenCoop.getChickens()) {
                 chicken.eat();
-                chicken.collectEgg();
+                chicken.collectEgg(chicken.yields());
             }
         }
     }

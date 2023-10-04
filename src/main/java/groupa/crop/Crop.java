@@ -29,5 +29,15 @@ public abstract class Crop implements Produce {
         this.hasBeenHarvested = hasBeenHarvested;
     }
 
-    public abstract void pick(Edible edible);
+    /**
+     * pick allows us to add edible (Tomato/Corn) into the Basket. As long as the Edible object is not null,
+     * it is ready and edible. Therefore, add to the Basket.
+     *
+     * @param edible
+     */
+    public void pick(Edible edible) {
+        if (edible != null) {
+            Basket.getInstance().addTo(edible);
+        }
+    }
 }
