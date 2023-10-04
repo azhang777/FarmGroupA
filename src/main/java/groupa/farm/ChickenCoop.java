@@ -11,10 +11,18 @@ public class ChickenCoop {
     }
 
 
+    /**
+     *
+     * @return ArrayList of Chicken
+     */
     public ArrayList<Chicken> getChickens() {
         return chickens;
     }
 
+    /**
+     * adds chicken object to ArrayList
+     * @param chicken
+     */
     public void addChicken(Chicken chicken) {
         this.chickens.add(chicken);
     }
