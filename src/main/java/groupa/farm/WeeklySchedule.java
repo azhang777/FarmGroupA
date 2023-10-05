@@ -58,27 +58,13 @@ public final class WeeklySchedule {
      */
     private void runCurrentDay() {
         switch (Day.getCurrentDay()) {
-            case 0:
-                sunday();
-                break;
-            case 1:
-                monday();
-                break;
-            case 2:
-                tuesday();
-                break;
-            case 3:
-                wednesday();
-                break;
-            case 4:
-                thursday();
-                break;
-            case 5:
-                friday();
-                break;
-            case 6:
-                saturday();
-                break;
+            case 0 -> sunday();
+            case 1 -> monday();
+            case 2 -> tuesday();
+            case 3 -> wednesday();
+            case 4 -> thursday();
+            case 5 -> friday();
+            case 6 -> saturday();
         }
     }
 
@@ -88,18 +74,11 @@ public final class WeeklySchedule {
     private void sunday() {
         System.out.println("\n SUNDAY:\n#######################");
         morningRoutine();
-        for (int i = 0; i < 70; i++) {
-            farmer.plant(new CornStalk(), farm.getField().getCropRows().get(0));
-        }
-        for (int i = 0; i < 50; i++) {
-            farmer.plant(new TomatoPlant(), farm.getField().getCropRows().get(1));
-        }
-        for (int i = 0; i < 25; i++) {
-            farmer.plant(new TomatoPlant(), farm.getField().getCropRows().get(2));
-        }
-        for (int i = 0; i < 80; i++) {
-            farmer.plant(new CornStalk(), farm.getField().getCropRows().get(2));
-        }
+        plantMultipleCrops(farmer,1,0,70);
+        plantMultipleCrops(farmer,2,1,50);
+        plantMultipleCrops(farmer,2,2,25);
+        plantMultipleCrops(farmer,1,2,80);
+        System.out.println(farmer.getName() + " has planted on Sunday.");
         printBasketResultsByDay();
     }
 
@@ -126,6 +105,7 @@ public final class WeeklySchedule {
         tractor1.harvest(farm.getField());
         farmer.mount(tractor1);
         tractor1.harvest(farm.getField());
+        farmer.dismount(tractor1);
         printBasketResultsByDay();
     }
 
@@ -136,17 +116,7 @@ public final class WeeklySchedule {
         System.out.println("\n WEDNESDAY:\n#######################");
         morningRoutine();
         for (int i = 2; i < farm.getField().getCropRows().size(); i++) {
-            CropRow cropRow = farm.getField().getCropRows().get(i);
-            for (int j = 0; j < 5; j++) {
-                Crop crop = null;
-                int random = (int) (Math.random() * 2);
-                if (random == 0) {
-                    crop = new CornStalk();
-                } else if (random == 1) {
-                    crop = new TomatoPlant();
-                }
-                farmer.plant(crop, cropRow);
-            }
+            plantCropsByRandom(farmer,i,5);
         }
         printBasketResultsByDay();
     }
@@ -215,4 +185,34 @@ public final class WeeklySchedule {
         System.out.println("Eggs: " + Basket.getInstance().getEggAmount());
     }
 
+    private void plantMultipleCrops(Farmer farmer, int type, int rowNumber, int count) {
+        Crop crop = null;
+
+        for (int i = 0; i < count; i++) {
+            if (type == 1) {
+                crop = new CornStalk();
+            } else if (type == 2) {
+                crop = new TomatoPlant();
+            }
+            if(crop == null) {
+                System.out.println("Type of crop not specified in plantMultipleCrops");
+                System.out.println("1 = CornStalk, 2 = TomatoPlant");
+                return;
+            }
+            farmer.plant(crop, farm.getField().getCropRows().get(rowNumber));
+        }
+    }
+
+    private void plantCropsByRandom(Farmer farmer, int rowNumber, int count) {
+        for (int j = 0; j < count; j++) {
+            Crop crop = null;
+            int random = (int) (Math.random() * 2);
+            if (random == 0) {
+                crop = new CornStalk();
+            } else if (random == 1) {
+                crop = new TomatoPlant();
+            }
+            farmer.plant(crop, farm.getField().getCropRows().get(rowNumber));
+        }
+    }
 }

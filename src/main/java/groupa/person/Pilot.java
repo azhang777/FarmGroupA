@@ -71,7 +71,7 @@ public class Pilot extends Person implements Rider {
         if (rideable instanceof Aircraft) {
             if (rideable instanceof CropDuster) {
                 if (rideable.isInUse()) {
-                    System.out.println(getName() + " is leaving the vehicle under " + ((CropDuster) rideable).getId());
+                    System.out.println(getName() + " is leaving the vehicle under #" + ((CropDuster) rideable).getId());
                     ((CropDuster) rideable).operate(false);
                     isRiding = false;
                 }

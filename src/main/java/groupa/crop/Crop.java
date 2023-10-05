@@ -3,7 +3,6 @@ package groupa.crop;
 import groupa.interfaces.Edible;
 import groupa.interfaces.Produce;
 
-//done
 public abstract class Crop implements Produce {
     private boolean hasBeenFertilized;
     private boolean hasBeenHarvested;

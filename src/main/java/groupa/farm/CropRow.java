@@ -49,21 +49,23 @@ public class CropRow {
 
     /**
      * When crop duster operates, all cropRows in the field will call this method.
-     * All crops in cropRow will have their fertilized = true
+     * All crops in cropRow will have their fertilized = true, harvested = false
      */
     public void fertilizeAllCrops() {
+
         crops.forEach(cropElement -> cropElement.setHasBeenFertilized(true));
+        crops.forEach(cropElement -> cropElement.setHasBeenHarvested(false));
     }
 
     /**
      * When tractor operates, all cropsRows in the field will call this method
-     * All crops in cropRow will have their harvested = true
      * Then we yield each crop element. If yields returns a non-null object, add it to Basket.
+     * then set harvested to true
      */
     public void harvestAllCrops() {
         crops.forEach(cropElement -> {
-            cropElement.setHasBeenHarvested(true);
             cropElement.pick(cropElement.yields());
+            cropElement.setHasBeenHarvested(true);
         });
     }
 }
