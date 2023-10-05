@@ -10,18 +10,16 @@ public class CornStalk extends Crop {
 
 
     /**
-     * Checks if the CornStalk is both fertilized and harvested, meaning CropDuster and Tractor
+     * Checks if the CornStalk is both fertilized and !harvested, meaning CropDuster and Tractor
      * has operated on this CornStalk. At that point, it is ready to yield its Corn produce.
      *
      * @return Edible
      */
     @Override
     public Edible yields() {
-        if (this.checkFertilized() && this.checkHarvested()) {
+        if (this.checkFertilized() && !this.checkHarvested()) {
             Corn newCorn = new Corn();
-            // corn.add(newCorn);
             this.setHasBeenFertilized(false);
-            this.setHasBeenHarvested(false);
             return newCorn;
         } else {
             System.out.println("Corn stalk not ready to be harvested!");

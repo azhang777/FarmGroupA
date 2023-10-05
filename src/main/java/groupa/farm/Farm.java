@@ -54,7 +54,7 @@ public class Farm {
     public void setField(Field field) {
         this.field = field;
     }
-    // toStrings need to be Overrided for corresponding classes
+
     public void printFarm() {
         System.out.println(stables);
         System.out.println(chickenCoops);

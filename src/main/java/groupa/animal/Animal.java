@@ -2,7 +2,7 @@ package groupa.animal;
 
 import groupa.interfaces.Eater;
 import groupa.interfaces.NoiseMaker;
-//done
+
 public abstract class Animal implements Eater, NoiseMaker {
     private String sound;
     private String name;

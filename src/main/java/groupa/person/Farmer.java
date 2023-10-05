@@ -52,7 +52,6 @@ public class Farmer extends Person implements Botanist, Rider {
      */
     @Override
     public void plant(Crop crop, CropRow cropRow) {
-        System.out.println(getName() + " is planting in row:" + cropRow.getRowNumber());
         cropRow.getCrops().add(crop);
     }
 
@@ -68,7 +67,7 @@ public class Farmer extends Person implements Botanist, Rider {
         if (rideable instanceof FarmVehicle) {
             if (rideable instanceof Tractor) {
                 if (!rideable.isInUse()) {
-                    System.out.println(getName() + " is now operating the vehicle under " + ((Tractor) rideable).getId());
+                    System.out.println(getName() + " is now operating the vehicle under #" + ((Tractor) rideable).getId());
                     ((Tractor) rideable).operate(true);
                     isRiding = true;
 
@@ -100,6 +99,7 @@ public class Farmer extends Person implements Botanist, Rider {
         if (rideable instanceof FarmVehicle) {
             if (rideable instanceof Tractor) {
                 if (rideable.isInUse()) {
+                    System.out.println(getName() + " is leaving the vehicle under #" + ((Tractor) rideable).getId());
                     isRiding = false;
                     ((Tractor) rideable).operate(false);
 
