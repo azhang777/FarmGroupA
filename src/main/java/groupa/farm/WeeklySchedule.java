@@ -9,21 +9,34 @@ import groupa.vehicle.Tractor;
 
 import java.util.Scanner;
 
-public class WeeklySchedule {
+public final class WeeklySchedule {
+    /**
+     * Singleton class
+     */
+    private static WeeklySchedule instance;
     private Farm farm;
     private Farmer farmer;
     private Pilot pilot;
     private Tractor tractor1;
     private CropDuster cropDuster;
 
-    public WeeklySchedule(Farm farm, Farmer farmer, Pilot pilot, Tractor tractor1, CropDuster cropDuster) {
+    private WeeklySchedule(Farm farm, Farmer farmer, Pilot pilot, Tractor tractor1, CropDuster cropDuster) {
         this.farm = farm;
         this.farmer = farmer;
         this.pilot = pilot;
         this.tractor1 = tractor1;
         this.cropDuster = cropDuster;
     }
+    public static WeeklySchedule getInstance(Farm farm, Farmer farmer, Pilot pilot, Tractor tractor1, CropDuster cropDuster) {
+        if (instance == null) {
+            instance = new WeeklySchedule(farm, farmer, pilot, tractor1, cropDuster);
+        }
+        return instance;
+    }
 
+    /**
+     * start a scanner to advance each day after inputting 1
+     */
     public void startWeek() {
         Scanner scanner = new Scanner(System.in);
         Day.setDay(0);
@@ -40,6 +53,9 @@ public class WeeklySchedule {
         }
     }
 
+    /**
+     * Run a day method according to current day
+     */
     private void runCurrentDay() {
         switch (Day.getCurrentDay()) {
             case 0:
@@ -66,21 +82,33 @@ public class WeeklySchedule {
         }
     }
 
+    /**
+     * start morning routine and plant crops
+     */
     private void sunday() {
         System.out.println("\n SUNDAY:\n#######################");
         morningRoutine();
-        farmer.plant(new CornStalk(), farm.getField().getCropRows().get(0));
-        farmer.plant(new TomatoPlant(), farm.getField().getCropRows().get(1));
-        farmer.plant(new TomatoPlant(), farm.getField().getCropRows().get(2));
+        for (int i = 0; i < 70; i++) {
+            farmer.plant(new CornStalk(), farm.getField().getCropRows().get(0));
+        }
+        for (int i = 0; i < 50; i++) {
+            farmer.plant(new TomatoPlant(), farm.getField().getCropRows().get(1));
+        }
+        for (int i = 0; i < 25; i++) {
+            farmer.plant(new TomatoPlant(), farm.getField().getCropRows().get(2));
+        }
+        for (int i = 0; i < 80; i++) {
+            farmer.plant(new CornStalk(), farm.getField().getCropRows().get(2));
+        }
         printBasketResultsByDay();
     }
 
+    /**
+     * start morning routine and fertilize field
+     */
     private void monday() {
         System.out.println("\n MONDAY:\n#######################");
         morningRoutine();
-        for (int i = 0; i < 50; i++) {
-            farmer.plant(new CornStalk(), farm.getField().getCropRows().get(0));
-        }
         cropDuster.fly(farm.getField());
         pilot.mount(cropDuster);
         cropDuster.fly(farm.getField());
@@ -88,6 +116,9 @@ public class WeeklySchedule {
         printBasketResultsByDay();
     }
 
+    /**
+     * start morning routine and harvest field
+     */
     private void tuesday() {
         System.out.println("\n TUESDAY:\n#######################");
         morningRoutine();
@@ -95,18 +126,18 @@ public class WeeklySchedule {
         tractor1.harvest(farm.getField());
         farmer.mount(tractor1);
         tractor1.harvest(farm.getField());
-        for (int i = 0; i < 100; i++) {
-            farmer.plant(new CornStalk(), farm.getField().getCropRows().get(0));
-        }
         printBasketResultsByDay();
     }
 
+    /**
+     * plant CornStalk or TomatoPlant randomly, in each row after row 1 and row 2
+     */
     private void wednesday() {
         System.out.println("\n WEDNESDAY:\n#######################");
         morningRoutine();
         for (int i = 2; i < farm.getField().getCropRows().size(); i++) {
             CropRow cropRow = farm.getField().getCropRows().get(i);
-            for (int j = 0; j < 30; j++) {
+            for (int j = 0; j < 5; j++) {
                 Crop crop = null;
                 int random = (int) (Math.random() * 2);
                 if (random == 0) {
@@ -117,14 +148,26 @@ public class WeeklySchedule {
                 farmer.plant(crop, cropRow);
             }
         }
+        printBasketResultsByDay();
+    }
+
+    /**
+     * start morning routine and fertilize field
+     */
+    private void thursday() {
+        System.out.println("\n THURSDAY:\n#######################");
+        morningRoutine();
         pilot.mount(cropDuster);
         cropDuster.fly(farm.getField());
         pilot.dismount(cropDuster);
         printBasketResultsByDay();
     }
 
-    private void thursday() {
-        System.out.println("\n THURSDAY:\n#######################");
+    /**
+     * start morning routine and harvest field
+     */
+    private void friday() {
+        System.out.println("\n FRIDAY:\n#######################");
         morningRoutine();
         farmer.mount(tractor1);
         tractor1.harvest(farm.getField());
@@ -132,15 +175,9 @@ public class WeeklySchedule {
         printBasketResultsByDay();
     }
 
-    private void friday() {
-        for (int i = 0; i < 100; i++) {
-            farmer.plant(new CornStalk(), farm.getField().getCropRows().get(0));
-        }
-        System.out.println("\n FRIDAY:\n#######################");
-        morningRoutine();
-        printBasketResultsByDay();
-    }
-
+    /**
+     * start morning routine and farmer and pilot relax for the day
+     */
     private void saturday() {
         System.out.println("\n SATURDAY:\n#######################");
         morningRoutine();
@@ -149,10 +186,15 @@ public class WeeklySchedule {
         printBasketResultsByDay();
     }
 
+    /**
+     * ride all horses and feed all horses and chickens
+     * farmer and pilot eat
+     * print Basket results after, allows to see Basket results after every morning routine
+     */
     private void morningRoutine() {
         farm.rideAllHorsesInEachStable(farmer, pilot);
         farm.feedAllHorsesInEachStable(farmer, pilot);
-        farm.feedAllChickensInEachChickenCoop();
+        farm.feedAllChickensInEachChickenCoop(farmer, pilot);
         // food is hardcoded into Froilan's (The only Farmer) and Froilanda's (The only Pilot) eat methods
         farmer.eat();
         pilot.eat();
@@ -162,10 +204,9 @@ public class WeeklySchedule {
         System.out.println("Eggs: " + Basket.getInstance().getEggAmount());
     }
 
-
-
-
-
+    /**
+     * print Basket results, meant to be called as the last method within each day method
+     */
     private void printBasketResultsByDay() {
         System.out.println("\nBy the end of " + Day.returnDayAsString(Day.getCurrentDay())
         + ", there are " + Basket.getInstance().totalAmount() + " items left in the basket.");

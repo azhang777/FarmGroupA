@@ -15,7 +15,7 @@ public final class Basket {
      */
     private Basket() {
         edibles = new ArrayList<>();
-        for (int i = 0; i < 140; i++) {
+        for (int i = 0; i < 300; i++) {
             edibles.add(new Corn());
         }
         for (int i = 0; i < 30; i++) {
