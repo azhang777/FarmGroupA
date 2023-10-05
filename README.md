@@ -1,11 +1,4 @@
-
-
-
-
-
-![Farmer Frolian drawio (1)](https://github.com/azhang777/FarmGroupA/assets/67079259/0be5353f-e54d-45c5-9e97-84904ce1b193)
-
-
+![Farmer Frolian drawio (2)](https://github.com/azhang777/FarmGroupA/assets/67079259/e520e573-1b50-4a22-8f0f-06e6b223b1f5)
 
 
 
