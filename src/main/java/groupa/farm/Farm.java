@@ -61,10 +61,20 @@ public class Farm {
         System.out.println(farmHouse);
     }
 
+    /**
+     * advance the day by calling nextDay() from Day enum
+     */
     public void advanceDay() {
         Day.nextDay();
     }
 
+    /**
+     *
+     * @param rider1
+     * @param rider2
+     *
+     * ride all horses in each stable, rider1 and rider 2 will swap turns riding a horse
+     */
     public void rideAllHorsesInEachStable(Rider rider1, Rider rider2) {
         for (Stable stable : getStables()) {
             if (stable.getHorses().size() == 1) {
@@ -95,12 +105,29 @@ public class Farm {
             }
         }
     }
+
+    /**
+     *
+     * @param rider
+     * @param stable
+     * @param horseNumber
+     * check if rider is currently riding horse to make sure they dismount it before
+     * they mount another
+     */
     private void checkIfRidingHorse(Rider rider, Stable stable, int horseNumber) {
         if (rider.isRiding()) {
             rider.dismount(stable.getHorses().get(horseNumber));
             System.out.println(((Person) rider).getName() + " dismounted Horse " + horseNumber);
         }
     }
+
+    /**
+     *
+     * @param person1
+     * @param person2
+     * feed all horses in each stable, person1 and person2 will swap turns
+     * feeding a horse
+     */
     public void feedAllHorsesInEachStable(Person person1, Person person2) {
         for (Stable stable : getStables()) {
             if (stable.getHorses().size() == 1) {
@@ -127,11 +154,36 @@ public class Farm {
             }
         }
     }
-    public void feedAllChickensInEachChickenCoop() {
+
+    /**
+     * feed all chickens in each chicken coop, person1 and person2 will swap turns
+     * feeding a chicken
+     */
+    public void feedAllChickensInEachChickenCoop(Person person1, Person person2) {
         for (ChickenCoop chickenCoop : getChickenCoops()) {
-            for (Chicken chicken : chickenCoop.getChickens()) {
-                chicken.eat();
-                chicken.collectEgg(chicken.yields());
+            if (chickenCoop.getChickens().size() == 1) {
+                System.out.println("There is only one chicken to feed, " + person1.getName() + " will feed it.");
+                chickenCoop.getChickens().get(0).eat();
+            } else {
+                System.out.println("Chicken Coop " + getChickenCoops().indexOf(chickenCoop));
+                System.out.println("=============================");
+                int counter = 0;
+                int chickenNumber = 0;
+                for (Chicken chicken : chickenCoop.getChickens()) {
+                    if (counter % 2 == 0 || counter == 0) {
+                        chicken.eat();
+                        chicken.collectEgg(chicken.yields());
+                        chickenNumber = chickenCoop.getChickens().indexOf(chicken);
+                        System.out.println(person1.getName() + " fed Chicken " + chickenNumber);
+                    } else {
+                        chicken.eat();
+                        chicken.collectEgg(chicken.yields());
+                        chickenNumber = chickenCoop.getChickens().indexOf(chicken);
+                        System.out.println(person2.getName() + " fed Chicken " + chickenNumber);
+                    }
+                    counter++;
+                }
+                System.out.println();
             }
         }
     }
