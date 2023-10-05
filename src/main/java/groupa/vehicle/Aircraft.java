@@ -1,4 +1,15 @@
 package groupa.vehicle;
 
-public class Aircraft {
+import groupa.farm.Field;
+
+public abstract class Aircraft extends Vehicle{
+    public Aircraft(String sound, long id) {
+        super(sound, id);
+    }
+
+    /**
+     * will get overridden in cropduster class
+     * @param field
+     */
+    public abstract void fly(Field field);
 }
