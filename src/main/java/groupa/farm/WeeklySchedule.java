@@ -78,7 +78,6 @@ public final class WeeklySchedule {
         plantMultipleCrops(farmer,2,1,50);
         plantMultipleCrops(farmer,2,2,25);
         plantMultipleCrops(farmer,1,2,80);
-        System.out.println(farmer.getName() + " has planted on Sunday.");
         printBasketResultsByDay();
     }
 
@@ -186,14 +185,10 @@ public final class WeeklySchedule {
     }
 
     private void plantMultipleCrops(Farmer farmer, int type, int rowNumber, int count) {
-        Crop crop = null;
 
+        Crop crop = null;
         for (int i = 0; i < count; i++) {
-            if (type == 1) {
-                crop = new CornStalk();
-            } else if (type == 2) {
-                crop = new TomatoPlant();
-            }
+            crop = (type == 1) ? new CornStalk() : (type == 2) ? new TomatoPlant() : null;
             if(crop == null) {
                 System.out.println("Type of crop not specified in plantMultipleCrops");
                 System.out.println("1 = CornStalk, 2 = TomatoPlant");
@@ -201,18 +196,17 @@ public final class WeeklySchedule {
             }
             farmer.plant(crop, farm.getField().getCropRows().get(rowNumber));
         }
+        System.out.println(farmer.getName() + " planted " + count + " " + crop.getClass().getSimpleName() + " in row " + rowNumber);
     }
 
     private void plantCropsByRandom(Farmer farmer, int rowNumber, int count) {
+        Crop crop = null;
         for (int j = 0; j < count; j++) {
-            Crop crop = null;
             int random = (int) (Math.random() * 2);
-            if (random == 0) {
-                crop = new CornStalk();
-            } else if (random == 1) {
-                crop = new TomatoPlant();
-            }
+
+            crop = (random == 0) ? new CornStalk() : (random == 1) ? new TomatoPlant() : null;
             farmer.plant(crop, farm.getField().getCropRows().get(rowNumber));
         }
+        System.out.println(farmer.getName() + " planted " + count + " " + crop.getClass().getSimpleName() + " in row " + rowNumber);
     }
 }
