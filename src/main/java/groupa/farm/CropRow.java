@@ -4,13 +4,13 @@ import groupa.crop.*;
 
 import java.util.ArrayList;
 
-public class CropRow {
+public class CropRow<E extends Crop> {
     private static int totalRows;
-    private int rowNumber;
-    private ArrayList<Crop> crops;
+    private int rowNumber;]
+    private ArrayList<E> crops;
 
     public CropRow() {
-        this.crops = new ArrayList<Crop>();
+        this.crops = new ArrayList<E>();
         rowNumber = totalRows;
         totalRows++;
     }
@@ -19,11 +19,11 @@ public class CropRow {
         return rowNumber;
     }
 
-    public ArrayList<Crop> getCrops() {
+    public ArrayList<E> getCrops() {
         return crops;
     }
 
-    public void setCrops(ArrayList<Crop> crops) {
+    public void setCrops(ArrayList<E> crops) {
         this.crops = crops;
     }
 
@@ -33,7 +33,7 @@ public class CropRow {
      *
      * @param crop
      */
-    public void addCrop(Crop crop) {
+    public void addCrop(E crop) {
         if (rowNumber == 0 && crop instanceof CornStalk) {
             crops.add(crop);
         } else if (rowNumber == 1 && crop instanceof TomatoPlant) {
